@@ -8,10 +8,55 @@
 
 #import "ChannelCell.h"
 
-@implementation ChannelCell
+@implementation ChannelCell {
+    UIImageView *imgv;
+    UILabel *txtOfTitle;
+    UILabel *txtOfStatus;
+    
+    UIView *grayLine;
+}
 
 - (void)resetSubviews {
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    if (imgv == nil) {
+        imgv = [[UIImageView alloc] init];
+        imgv.contentMode = UIViewContentModeScaleAspectFill;
+        imgv.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
+        imgv.clipsToBounds = YES;
+        [self.contentView addSubview:imgv];
+    }
+    imgv.sd_layout.leftSpaceToView(self.contentView, 20).centerYEqualToView(self.contentView).widthIs(72).heightEqualToWidth();
+    [imgv sd_setImageWithURL:[NSURL URLWithString:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png"]];
+    
+    if (txtOfTitle == nil) {
+        txtOfTitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"404040") parentView:self.contentView];
+        txtOfTitle.numberOfLines = 2;
+        txtOfTitle.sd_layout.leftSpaceToView(imgv, 10).topEqualToView(imgv).widthIs(ScreenW - 20 - 72 - 10 - 30);
+    }
+    txtOfTitle.text = @"The American Conservative Feed";
+    txtOfTitle.sd_layout.heightIs([txtOfTitle sizeThatFits:CGSizeMake(ScreenW - 20 - 72 - 10 - 30, MAXFLOAT)].height);
+    
+    
+    if (txtOfStatus == nil) {
+        txtOfStatus = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:12] textColor:HexColor(@"2e2e2e2") parentView:self.contentView];
+        txtOfStatus.sd_layout.leftSpaceToView(imgv, 10).rightSpaceToView(self.contentView, 0).bottomEqualToView(imgv).heightIs(14);
+    }
+    txtOfStatus.text = @"2 unread | 5 Feb 2019 latest";
+    NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:txtOfStatus.textColor}];
+    [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"A62A2A") range:NSMakeRange(0, [@"2 unread |" length])];
+    txtOfStatus.attributedText = attrOfStatus;
+    
+    if (grayLine == nil) {
+        grayLine = [[UIView alloc] init];
+        grayLine.backgroundColor = HexColor(@"dfdfdf");
+        [self.contentView addSubview:grayLine];
+        grayLine.sd_layout.leftSpaceToView(self.contentView, 20).rightSpaceToView(self.contentView, 0).bottomEqualToView(self.contentView).heightIs(1);
+    }
+}
+
+- (void)showGrayLine:(BOOL)shouldShow {
+    grayLine.hidden = !shouldShow;
 }
 
 @end

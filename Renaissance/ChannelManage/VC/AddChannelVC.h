@@ -1,20 +1,16 @@
 //
-//  ChannelCell.h
+//  AddChannelVC.h
 //  Renaissance
 //
 //  Created by Albus on 2019/2/6.
 //  Copyright © 2019 Albus. All rights reserved.
 //
 
-#import "ASTableViewCell.h"
+#import "ASTableViewVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChannelCell : ASTableViewCell
-
-- (void)resetSubviews;
-
-- (void)showGrayLine:(BOOL)shouldShow;
+@interface AddChannelVC : ASTableViewVC
 
 @end
 

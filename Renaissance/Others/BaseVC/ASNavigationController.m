@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
 //    [self customNavigationBar];
-    self.navigationBar.tintColor = HexColor(@"000000");
+    self.navigationBar.tintColor = HexColor(@"404040");
 }
 
 - (void)customNavigationBar{

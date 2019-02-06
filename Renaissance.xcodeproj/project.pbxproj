@@ -22,6 +22,7 @@
 		4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */; };
 		4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */; };
 		4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D5D220A928B00D4DD91 /* ChannelCell.m */; };
+		4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D60220A98D600D4DD91 /* AddChannelVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableViewCell.m; sourceTree = "<group>"; };
 		4EEB3D5C220A928B00D4DD91 /* ChannelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
 		4EEB3D5D220A928B00D4DD91 /* ChannelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		4EEB3D5F220A98D600D4DD91 /* AddChannelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddChannelVC.h; sourceTree = "<group>"; };
+		4EEB3D60220A98D600D4DD91 /* AddChannelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddChannelVC.m; sourceTree = "<group>"; };
 		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
 		D6B1B4998383887A49F0145E /* libPods-Renaissance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Renaissance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,6 +170,8 @@
 			children = (
 				4EEB3D3E220A842200D4DD91 /* ChannelManageVC.h */,
 				4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */,
+				4EEB3D5F220A98D600D4DD91 /* AddChannelVC.h */,
+				4EEB3D60220A98D600D4DD91 /* AddChannelVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */,
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,

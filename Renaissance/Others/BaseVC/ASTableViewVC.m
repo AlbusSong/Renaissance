@@ -31,6 +31,9 @@
     self.tableView.estimatedSectionFooterHeight = 0;
 //    self.tableView.placeholderEnable = YES;
     [self.view addSubview:self.tableView];
+    
+    self.tableView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view);
+    self.tableView.sd_layout.bottomEqualToView(self.view).topSpaceToView(self.view, Height_NavBar);
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
