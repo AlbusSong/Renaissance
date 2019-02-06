@@ -8,24 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D16220A810200D4DD91 /* AppDelegate.m */; };
-		4EEB3D1A220A810200D4DD91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D19220A810200D4DD91 /* ViewController.m */; };
-		4EEB3D1D220A810200D4DD91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D1B220A810200D4DD91 /* Main.storyboard */; };
 		4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D1E220A810300D4DD91 /* Assets.xcassets */; };
 		4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */; };
 		4EEB3D25220A810300D4DD91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D24220A810300D4DD91 /* main.m */; };
+		4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D32220A835100D4DD91 /* ASNavigationController.m */; };
+		4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D35220A839200D4DD91 /* ASViewController.m */; };
+		4EEB3D3D220A840E00D4DD91 /* ASTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D3C220A840E00D4DD91 /* ASTableViewVC.m */; };
+		4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4EEB3D12220A810200D4DD91 /* Renaissance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renaissance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEB3D15220A810200D4DD91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EEB3D16220A810200D4DD91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4EEB3D18220A810200D4DD91 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4EEB3D19220A810200D4DD91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4EEB3D1C220A810200D4DD91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EEB3D1E220A810300D4DD91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EEB3D21220A810300D4DD91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EEB3D23220A810300D4DD91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EEB3D24220A810300D4DD91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EEB3D31220A835100D4DD91 /* ASNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASNavigationController.h; sourceTree = "<group>"; };
+		4EEB3D32220A835100D4DD91 /* ASNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASNavigationController.m; sourceTree = "<group>"; };
+		4EEB3D34220A839200D4DD91 /* ASViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASViewController.h; sourceTree = "<group>"; };
+		4EEB3D35220A839200D4DD91 /* ASViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASViewController.m; sourceTree = "<group>"; };
+		4EEB3D3B220A840E00D4DD91 /* ASTableViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTableViewVC.h; sourceTree = "<group>"; };
+		4EEB3D3C220A840E00D4DD91 /* ASTableViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableViewVC.m; sourceTree = "<group>"; };
+		4EEB3D3E220A842200D4DD91 /* ChannelManageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelManageVC.h; sourceTree = "<group>"; };
+		4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelManageVC.m; sourceTree = "<group>"; };
+		4EEB3D41220A846F00D4DD91 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +66,79 @@
 		4EEB3D14220A810200D4DD91 /* Renaissance */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D2E220A829100D4DD91 /* Reading */,
+				4EEB3D2D220A827400D4DD91 /* ReadingList */,
+				4EEB3D2C220A826A00D4DD91 /* ChannelManage */,
+				4EEB3D2B220A824B00D4DD91 /* Others */,
+				4EEB3D2F220A829D00D4DD91 /* SupportingFiles */,
+			);
+			path = Renaissance;
+			sourceTree = "<group>";
+		};
+		4EEB3D2B220A824B00D4DD91 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D30220A831C00D4DD91 /* BaseVC */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		4EEB3D2C220A826A00D4DD91 /* ChannelManage */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D37220A83BA00D4DD91 /* VC */,
+			);
+			path = ChannelManage;
+			sourceTree = "<group>";
+		};
+		4EEB3D2D220A827400D4DD91 /* ReadingList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReadingList;
+			sourceTree = "<group>";
+		};
+		4EEB3D2E220A829100D4DD91 /* Reading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reading;
+			sourceTree = "<group>";
+		};
+		4EEB3D2F220A829D00D4DD91 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				4EEB3D15220A810200D4DD91 /* AppDelegate.h */,
 				4EEB3D16220A810200D4DD91 /* AppDelegate.m */,
-				4EEB3D18220A810200D4DD91 /* ViewController.h */,
-				4EEB3D19220A810200D4DD91 /* ViewController.m */,
-				4EEB3D1B220A810200D4DD91 /* Main.storyboard */,
 				4EEB3D1E220A810300D4DD91 /* Assets.xcassets */,
 				4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */,
 				4EEB3D23220A810300D4DD91 /* Info.plist */,
 				4EEB3D24220A810300D4DD91 /* main.m */,
+				4EEB3D41220A846F00D4DD91 /* PrefixHeader.pch */,
 			);
-			path = Renaissance;
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4EEB3D30220A831C00D4DD91 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D31220A835100D4DD91 /* ASNavigationController.h */,
+				4EEB3D32220A835100D4DD91 /* ASNavigationController.m */,
+				4EEB3D34220A839200D4DD91 /* ASViewController.h */,
+				4EEB3D35220A839200D4DD91 /* ASViewController.m */,
+				4EEB3D3B220A840E00D4DD91 /* ASTableViewVC.h */,
+				4EEB3D3C220A840E00D4DD91 /* ASTableViewVC.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		4EEB3D37220A83BA00D4DD91 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D3E220A842200D4DD91 /* ChannelManageVC.h */,
+				4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +200,6 @@
 			files = (
 				4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */,
 				4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */,
-				4EEB3D1D220A810200D4DD91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,23 +210,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EEB3D1A220A810200D4DD91 /* ViewController.m in Sources */,
+				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
+				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
+				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
 				4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */,
+				4EEB3D3D220A840E00D4DD91 /* ASTableViewVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4EEB3D1B220A810200D4DD91 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EEB3D1C220A810200D4DD91 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -220,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -273,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,14 +351,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7C242XVVZ;
-				INFOPLIST_FILE = Renaissance/Info.plist;
+				GCC_PREFIX_HEADER = /Users/albus/Desktop/iOS/Renaissance/Renaissance/SupportingFiles/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/Renaissance/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.LikeAnEagle.Renaissance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,14 +370,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7C242XVVZ;
-				INFOPLIST_FILE = Renaissance/Info.plist;
+				GCC_PREFIX_HEADER = /Users/albus/Desktop/iOS/Renaissance/Renaissance/SupportingFiles/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/Renaissance/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.LikeAnEagle.Renaissance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

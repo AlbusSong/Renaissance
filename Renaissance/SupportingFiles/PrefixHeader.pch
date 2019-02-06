@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  Renaissance
+//
+//  Created by Albus on 2019/2/6.
+//  Copyright © 2019 Albus. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// Base ViewController
+#import "ASNavigationController.h"
+#import "ASViewController.h"
+#import "ASTableViewVC.h"
+
+#endif /* PrefixHeader_pch */

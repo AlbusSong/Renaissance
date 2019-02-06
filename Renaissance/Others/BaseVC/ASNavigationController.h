@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ASNavigationController.h
 //  Renaissance
 //
 //  Created by Albus on 2019/2/6.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface ASNavigationController : UINavigationController
 
 @end
 
+NS_ASSUME_NONNULL_END

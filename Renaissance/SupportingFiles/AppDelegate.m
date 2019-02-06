@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ChannelManageVC.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] init];
+    self.window.backgroundColor = [UIColor blackColor];
+    
+    ChannelManageVC *vcOfChannelManagement = [[ChannelManageVC alloc] init];
+    ASNavigationController *rootNav = [[ASNavigationController alloc] initWithRootViewController:vcOfChannelManagement];
+    self.window.rootViewController = rootNav;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
