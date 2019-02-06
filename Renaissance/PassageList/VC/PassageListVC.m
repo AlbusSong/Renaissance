@@ -84,7 +84,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.dataArr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url];
+    self.dataArr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString];
     
     [self.tableView registerClass:[PassageListCell class] forCellReuseIdentifier:@"PassageListCellIdentifier"];
 }

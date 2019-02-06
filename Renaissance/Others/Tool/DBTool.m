@@ -51,14 +51,14 @@ static DBTool *instance = nil;
         data.urlMd5Value = [selectResult stringForColumn:@"urlMd5Value"];
         data.title = [selectResult stringForColumn:@"title"];
         data.link = [selectResult stringForColumn:@"link"];
-        data.url = [selectResult stringForColumn:@"url"];
+        data.url = [NSURL URLWithString:[selectResult stringForColumn:@"url"]];
         data.summary = [selectResult stringForColumn:@"summary"];
         data.logoUrl = [selectResult stringForColumn:@"logoUrl"];
         data.favoiconUrl = [selectResult stringForColumn:@"favoiconUrl"];
         data.isDeleted = [[selectResult stringForColumn:@"isDeleted"] intValue];
         data.isCollected = [[selectResult stringForColumn:@"isCollected"] intValue];
         data.createTime = [[selectResult stringForColumn:@"createTime"] integerValue];
-        data.lastBuildDate = [selectResult stringForColumn:@"lastBuildDate"];
+        data.lastBuildDate = [selectResult dateForColumn:@"lastBuildDate"];
         
         [result addObject:data];
     }
@@ -92,7 +92,8 @@ static DBTool *instance = nil;
     
     [self.database open];
     
-    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_tb (urlMd5Value, title, link, url, summary, lastBuildDate) VALUES (?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedInfo.url.absoluteString], feedInfo.title.length > 0 ? feedInfo.title : @"", feedInfo.link.length > 0 ? feedInfo.link : @"", feedInfo.url.absoluteString.length > 0 ? feedInfo.url.absoluteString : @"", feedInfo.summary.length > 0 ? feedInfo.summary : @"", feedInfo.lastBuildDate > 0 ? feedInfo.lastBuildDate.description : @""];
+    NSLog(@"lastBuildDatelastBuildDatelastBuildDate: %li, %li", (NSInteger)[feedInfo.lastBuildDate timeIntervalSince1970], (NSInteger)[[NSDate date] timeIntervalSince1970]);
+    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_tb (urlMd5Value, title, link, url, summary, lastBuildDate) VALUES (?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedInfo.url.absoluteString], feedInfo.title.length > 0 ? feedInfo.title : @"", feedInfo.link.length > 0 ? feedInfo.link : @"", feedInfo.url.absoluteString.length > 0 ? feedInfo.url.absoluteString : @"", feedInfo.summary.length > 0 ? feedInfo.summary : @"", feedInfo.lastBuildDate ? @((NSInteger)[feedInfo.lastBuildDate timeIntervalSince1970]) : nil];
     if (result) {
         NSLog(@"cached successfully");
     } else {
@@ -116,8 +117,8 @@ static DBTool *instance = nil;
         data.coverUrl = [selectResult stringForColumn:@"coverUrl"];
         data.isCollected = [[selectResult stringForColumn:@"isCollected"] intValue];
         data.createTime = [[selectResult stringForColumn:@"createTime"] integerValue];
-//        data.date = [selectResult stringForColumn:@"date"];
-//        data.updated = [selectResult stringForColumn:@"updated"];
+        data.date = [selectResult dateForColumn:@"date"];
+        data.updated = [selectResult dateForColumn:@"updated"];
         data.author = [selectResult stringForColumn:@"author"];
         data.content = [selectResult stringForColumn:@"content"];
         NSData *dataOfEnclosures = [selectResult dataForColumn:@"enclosures"];
@@ -151,7 +152,7 @@ static DBTool *instance = nil;
         return;
     }
     
-    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_item_tb (identifierMd5Value, urlMd5Value, identifier, title, link, summary, date, updated, author, content, enclosures) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedItem.identifier], urlMd5Value, feedItem.identifier.length > 0 ? feedItem.identifier : @"", feedItem.title.length > 0 ? feedItem.title : @"", feedItem.link.length > 0 ? feedItem.link : @"", feedItem.summary.length > 0 ? feedItem.summary : @"", feedItem.date.description, feedItem.updated ? feedItem.updated.description : @"", feedItem.author.length > 0 ? feedItem.author : @"", feedItem.content.length > 0 ? feedItem.content : @"", feedItem.enclosures ? [NSKeyedArchiver archivedDataWithRootObject:feedItem.enclosures] : nil];
+    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_item_tb (identifierMd5Value, urlMd5Value, identifier, title, link, summary, date, updated, author, content, enclosures) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedItem.identifier], urlMd5Value, feedItem.identifier.length > 0 ? feedItem.identifier : @"", feedItem.title.length > 0 ? feedItem.title : @"", feedItem.link.length > 0 ? feedItem.link : @"", feedItem.summary.length > 0 ? feedItem.summary : @"", @((NSInteger)[feedItem.date timeIntervalSince1970]), feedItem.updated ? @((NSInteger)[feedItem.updated timeIntervalSince1970]) : nil, feedItem.author.length > 0 ? feedItem.author : @"", feedItem.content.length > 0 ? feedItem.content : @"", feedItem.enclosures ? [NSKeyedArchiver archivedDataWithRootObject:feedItem.enclosures] : nil];
     if (result) {
         NSLog(@"cached successfully");
     } else {
@@ -178,7 +179,7 @@ static DBTool *instance = nil;
 
 - (void)initChannelItemTable {
     if ([self.database open]) {
-        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_item_tb (id INTEGER PRIMARY KEY AutoIncrement, identifierMd5Value varchar UNIQUE, urlMd5Value varchar DEFAULT '', identifier varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', coverUrl varchar DEFAULT '', summary varchar DEFAULT '', date varchar DEFAULT '', updated varchar DEFAULT '', author varchar DEFAULT '', content text DEFAULT '', enclosures blob, cacheData blob, isRead SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0, createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
+        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_item_tb (id INTEGER PRIMARY KEY AutoIncrement, identifierMd5Value varchar UNIQUE, urlMd5Value varchar DEFAULT '', identifier varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', coverUrl varchar DEFAULT '', summary varchar DEFAULT '', date integer, updated integer, author varchar DEFAULT '', content text DEFAULT '', enclosures blob, cacheData blob, isRead SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0, createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
         if (result) {
             NSLog(@"create channel_item_tb successfully");
         }
@@ -195,7 +196,7 @@ static DBTool *instance = nil;
 
 - (void)initChannelTable {
     if ([self.database open]) {
-        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_tb (id INTEGER PRIMARY KEY AutoIncrement, urlMd5Value varchar UNIQUE, url varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', logoUrl varchar DEFAULT '', favoiconUrl varchar DEFAULT '', summary varchar DEFAULT '', lastBuildDate varchar DEFAULT '', cacheData blob, isDeleted SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0,  createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
+        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_tb (id INTEGER PRIMARY KEY AutoIncrement, urlMd5Value varchar UNIQUE, url varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', logoUrl varchar DEFAULT '', favoiconUrl varchar DEFAULT '', summary varchar DEFAULT '', lastBuildDate integer, cacheData blob, isDeleted SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0,  createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
         if (result) {
             NSLog(@"create channel_tb successfully");
         }
