@@ -18,6 +18,8 @@
 
 - (void)resetSubviews {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [UIColor whiteColor];
     
     if (imgv == nil) {
         imgv = [[UIImageView alloc] init];

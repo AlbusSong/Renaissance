@@ -18,11 +18,11 @@
     return [self quickLabelWithFont:[UIFont systemFontOfSize:fontSize] textColor:[UIColor colorWithHexString:textColorHexStr] parentView:parentView];
 }
 
-+ (instancetype)quickLabelWithFontSize:(CGFloat)fontSize textColor:(UIColor *)textColor parentView:(UIView *)parentView {
++ (instancetype)quickLabelWithFontSize:(CGFloat)fontSize textColor:(UIColor *)textColor parentView:(nullable UIView *)parentView {
     return [self quickLabelWithFont:[UIFont systemFontOfSize:fontSize] textColor:textColor parentView:parentView];
 }
 
-+ (instancetype)quickLabelWithFont:(UIFont *)font textColor:(UIColor *)textColor parentView:(UIView *)parentView {
++ (instancetype)quickLabelWithFont:(UIFont *)font textColor:(UIColor *)textColor parentView:(nullable UIView *)parentView {
     UILabel *label = [[self alloc] init];
     label.textColor = textColor;
     label.font = font;

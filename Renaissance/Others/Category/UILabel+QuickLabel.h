@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 //+ (instancetype)quickLabelWithParentView:(nullable UIView *)parentView; 
 
 + (instancetype)quickLabelWithFontSize:(CGFloat)fontSize textColorHexStr:(NSString *)textColorHexStr parentView:(nullable UIView *)parentView;
-+ (instancetype)quickLabelWithFontSize:(CGFloat)fontSize textColor:(UIColor *)textColor parentView:(UIView *)parentView;
-+ (instancetype)quickLabelWithFont:(UIFont *)font textColor:(UIColor *)textColor parentView:(UIView *)parentView;
++ (instancetype)quickLabelWithFontSize:(CGFloat)fontSize textColor:(UIColor *)textColor parentView:(nullable UIView *)parentView;
++ (instancetype)quickLabelWithFont:(UIFont *)font textColor:(UIColor *)textColor parentView:(nullable UIView *)parentView;
 
 @end
 

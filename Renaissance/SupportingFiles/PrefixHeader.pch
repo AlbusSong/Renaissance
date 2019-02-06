@@ -21,6 +21,8 @@
 #import "UIColor+Hex.h"
 #import "UIImage+Tool.h"
 #import "UILabel+QuickLabel.h"
+#import "UIView+Candy.h"
+#import "UITextField+QuickTextField.h"
 
 // Macro
 #import "Macro.h"
