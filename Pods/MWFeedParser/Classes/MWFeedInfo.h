@@ -44,6 +44,6 @@
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) NSString *language;
-@property (nonatomic, copy) NSString *lastBuildDate;
+@property (nonatomic, copy) NSDate *lastBuildDate;
 
 @end

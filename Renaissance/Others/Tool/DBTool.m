@@ -58,6 +58,7 @@ static DBTool *instance = nil;
         data.isDeleted = [[selectResult stringForColumn:@"isDeleted"] intValue];
         data.isCollected = [[selectResult stringForColumn:@"isCollected"] intValue];
         data.createTime = [[selectResult stringForColumn:@"createTime"] integerValue];
+        data.lastBuildDate = [selectResult stringForColumn:@"lastBuildDate"];
         
         [result addObject:data];
     }
@@ -91,7 +92,7 @@ static DBTool *instance = nil;
     
     [self.database open];
     
-    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_tb (urlMd5Value, title, link, url, summary, lastBuildDate) VALUES (?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedInfo.url.absoluteString], feedInfo.title.length > 0 ? feedInfo.title : @"", feedInfo.link.length > 0 ? feedInfo.link : @"", feedInfo.url.absoluteString.length > 0 ? feedInfo.url.absoluteString : @"", feedInfo.summary.length > 0 ? feedInfo.summary : @"", feedInfo.lastBuildDate.length > 0 ? feedInfo.lastBuildDate : @""];
+    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_tb (urlMd5Value, title, link, url, summary, lastBuildDate) VALUES (?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedInfo.url.absoluteString], feedInfo.title.length > 0 ? feedInfo.title : @"", feedInfo.link.length > 0 ? feedInfo.link : @"", feedInfo.url.absoluteString.length > 0 ? feedInfo.url.absoluteString : @"", feedInfo.summary.length > 0 ? feedInfo.summary : @"", feedInfo.lastBuildDate > 0 ? feedInfo.lastBuildDate.description : @""];
     if (result) {
         NSLog(@"cached successfully");
     } else {

@@ -128,6 +128,7 @@
         viewForBorder.layer.masksToBounds = YES;
         viewForBorder.layer.borderColor = HexColor(@"909090").CGColor;
         viewForBorder.layer.borderWidth = 1;
+        viewForBorder.layer.cornerRadius = 3;
         [cell.contentView addSubview:viewForBorder];
         viewForBorder.sd_layout.leftSpaceToView(cell.contentView, 10).rightSpaceToView(cell.contentView, 10).topSpaceToView(cell.contentView, 10).bottomSpaceToView(cell.contentView, 10);
         

@@ -36,6 +36,7 @@
     self.imgvOfLogo.contentMode = UIViewContentModeScaleAspectFill;
     self.imgvOfLogo.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
     self.imgvOfLogo.clipsToBounds = YES;
+    self.imgvOfLogo.layer.cornerRadius = 3;
     [self addSubview:self.imgvOfLogo];
     self.imgvOfLogo.sd_layout.topEqualToView(self).centerXEqualToView(self).widthIs(20).heightEqualToWidth();
     

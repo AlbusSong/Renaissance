@@ -7,19 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MWFeedInfo.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Channel : NSObject
+@interface Channel : MWFeedInfo
 
 @property (nonatomic, copy) NSString *urlMd5Value;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *link;
-@property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *logoUrl;
 @property (nonatomic, copy) NSString *favoiconUrl;
-@property (nonatomic, copy) NSString *summary;
-@property (nonatomic, copy) NSString *lastBuildDate;
 @property (nonatomic) int isDeleted;
 @property (nonatomic) int isCollected;
 @property (nonatomic) NSInteger createTime;
