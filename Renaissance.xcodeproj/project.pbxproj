@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24E897CDCDEA5F8892E14B29 /* libPods-Renaissance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B1B4998383887A49F0145E /* libPods-Renaissance.a */; };
 		4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D16220A810200D4DD91 /* AppDelegate.m */; };
 		4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D1E220A810300D4DD91 /* Assets.xcassets */; };
 		4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */; };
@@ -20,9 +21,11 @@
 		4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D50220A8C4C00D4DD91 /* UILabel+QuickLabel.m */; };
 		4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */; };
 		4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */; };
+		4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D5D220A928B00D4DD91 /* ChannelCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09F0DF84715281B1F6CE54AD /* Pods-Renaissance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.debug.xcconfig"; sourceTree = "<group>"; };
 		4EEB3D12220A810200D4DD91 /* Renaissance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renaissance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEB3D15220A810200D4DD91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EEB3D16220A810200D4DD91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +53,10 @@
 		4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableView.m; sourceTree = "<group>"; };
 		4EEB3D56220A8F8C00D4DD91 /* ASTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTableViewCell.h; sourceTree = "<group>"; };
 		4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableViewCell.m; sourceTree = "<group>"; };
+		4EEB3D5C220A928B00D4DD91 /* ChannelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
+		4EEB3D5D220A928B00D4DD91 /* ChannelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
+		D6B1B4998383887A49F0145E /* libPods-Renaissance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Renaissance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E897CDCDEA5F8892E14B29 /* libPods-Renaissance.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +76,8 @@
 			children = (
 				4EEB3D14220A810200D4DD91 /* Renaissance */,
 				4EEB3D13220A810200D4DD91 /* Products */,
+				56C284A7FCE3BB8427B48713 /* Pods */,
+				EC735F7AE612E868AAAC63EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +115,7 @@
 		4EEB3D2C220A826A00D4DD91 /* ChannelManage */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D5B220A927300D4DD91 /* View */,
 				4EEB3D37220A83BA00D4DD91 /* VC */,
 			);
 			path = ChannelManage;
@@ -192,6 +203,32 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
+		4EEB3D5B220A927300D4DD91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D5C220A928B00D4DD91 /* ChannelCell.h */,
+				4EEB3D5D220A928B00D4DD91 /* ChannelCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56C284A7FCE3BB8427B48713 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09F0DF84715281B1F6CE54AD /* Pods-Renaissance.debug.xcconfig */,
+				7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC735F7AE612E868AAAC63EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6B1B4998383887A49F0145E /* libPods-Renaissance.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,6 +236,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EEB3D28220A810300D4DD91 /* Build configuration list for PBXNativeTarget "Renaissance" */;
 			buildPhases = (
+				B8472876C89AF098B9DDE72C /* [CP] Check Pods Manifest.lock */,
 				4EEB3D0E220A810200D4DD91 /* Sources */,
 				4EEB3D0F220A810200D4DD91 /* Frameworks */,
 				4EEB3D10220A810200D4DD91 /* Resources */,
@@ -256,12 +294,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8472876C89AF098B9DDE72C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Renaissance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4EEB3D0E220A810200D4DD91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
+				4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
@@ -403,6 +467,7 @@
 		};
 		4EEB3D29220A810300D4DD91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09F0DF84715281B1F6CE54AD /* Pods-Renaissance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -422,6 +487,7 @@
 		};
 		4EEB3D2A220A810300D4DD91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

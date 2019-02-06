@@ -7,6 +7,7 @@
 //
 
 #import "ChannelManageVC.h"
+#import "ChannelCell.h"
 
 @interface ChannelManageVC ()
 
@@ -25,17 +26,24 @@
     txtOfNoData = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:24] textColor:HexColor(@"B0B0B0") parentView:self.tableView];
     txtOfNoData.textAlignment = NSTextAlignmentCenter;
     txtOfNoData.text = @"No Channel.\nTry to add a RSS Channel.";
-    txtOfNoData.frame = CGRectMake(0, 0, ScreenW, self.view.frame.size.height);
+    txtOfNoData.frame = CGRectMake(0, 0, ScreenW, self.view.frame.size.height - Height_NavBar);
+    
+    [self.tableView registerClass:[ChannelCell class] forCellReuseIdentifier:@"ChannelCellIdentifier"];
+    self.tableView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view);
+    self.tableView.sd_layout.bottomEqualToView(self.view).topSpaceToView(self.view, Height_NavBar);
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark UITableViewDelegate, UITableViewDataSource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return 10;
+//    return self.dataArr.count;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelCellIdentifier" forIndexPath:indexPath];
+//
+//    return cell;
+//}
 
 @end

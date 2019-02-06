@@ -29,4 +29,11 @@
 #import "ASTableView.h"
 #import "ASTableViewCell.h"
 
+// CocoaPods
+#import <AFNetworking.h>
+#import <SDAutoLayout.h>
+#import <FMDB.h>
+#import <UIImageView+WebCache.h>
+#import <MJExtension.h>
+
 #endif /* PrefixHeader_pch */
