@@ -18,16 +18,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)pushVC:(UIViewController *)nextVC {
+    [self pushVC:nextVC animated:YES];
 }
-*/
+
+- (void)pushVC:(UIViewController *)nextVC animated:(BOOL)animated {
+    if (self.navigationController) {
+        [self.navigationController pushViewController:nextVC animated:animated];
+    }
+}
+
+- (void)back {
+    [self backAnimated:YES];
+}
+
+- (void)backAnimated:(BOOL)animated {
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:animated];
+    }
+}
 
 @end

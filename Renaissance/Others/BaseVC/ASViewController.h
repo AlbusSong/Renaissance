@@ -12,6 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ASViewController : UIViewController
 
+- (void)back;
+- (void)backAnimated:(BOOL)animated;
+
+- (void)loadData;
+- (void)pushVC:(UIViewController *)nextVC animated:(BOOL)animated;
+- (void)pushVC:(UIViewController *)nextVC;
+
 @end
 
 NS_ASSUME_NONNULL_END

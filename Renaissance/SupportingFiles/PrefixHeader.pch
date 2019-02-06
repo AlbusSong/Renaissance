@@ -17,4 +17,12 @@
 #import "ASViewController.h"
 #import "ASTableViewVC.h"
 
+// Category
+#import "UIColor+Hex.h"
+#import "UIImage+Tool.h"
+#import "UILabel+QuickLabel.h"
+
+// Macro
+#import "Macro.h"
+
 #endif /* PrefixHeader_pch */

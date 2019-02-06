@@ -15,6 +15,9 @@
 		4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D35220A839200D4DD91 /* ASViewController.m */; };
 		4EEB3D3D220A840E00D4DD91 /* ASTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D3C220A840E00D4DD91 /* ASTableViewVC.m */; };
 		4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */; };
+		4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D46220A8A3B00D4DD91 /* UIColor+Hex.m */; };
+		4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D49220A8A8100D4DD91 /* UIImage+Tool.m */; };
+		4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D50220A8C4C00D4DD91 /* UILabel+QuickLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,13 @@
 		4EEB3D3E220A842200D4DD91 /* ChannelManageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelManageVC.h; sourceTree = "<group>"; };
 		4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelManageVC.m; sourceTree = "<group>"; };
 		4EEB3D41220A846F00D4DD91 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4EEB3D45220A8A3B00D4DD91 /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		4EEB3D46220A8A3B00D4DD91 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		4EEB3D48220A8A8100D4DD91 /* UIImage+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tool.h"; sourceTree = "<group>"; };
+		4EEB3D49220A8A8100D4DD91 /* UIImage+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tool.m"; sourceTree = "<group>"; };
+		4EEB3D4C220A8B7E00D4DD91 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		4EEB3D4F220A8C4C00D4DD91 /* UILabel+QuickLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+QuickLabel.h"; sourceTree = "<group>"; };
+		4EEB3D50220A8C4C00D4DD91 /* UILabel+QuickLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QuickLabel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,8 @@
 		4EEB3D2B220A824B00D4DD91 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D4B220A8B6500D4DD91 /* Macro */,
+				4EEB3D42220A89F600D4DD91 /* Category */,
 				4EEB3D30220A831C00D4DD91 /* BaseVC */,
 			);
 			path = Others;
@@ -139,6 +151,27 @@
 				4EEB3D3F220A842200D4DD91 /* ChannelManageVC.m */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		4EEB3D42220A89F600D4DD91 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D45220A8A3B00D4DD91 /* UIColor+Hex.h */,
+				4EEB3D46220A8A3B00D4DD91 /* UIColor+Hex.m */,
+				4EEB3D48220A8A8100D4DD91 /* UIImage+Tool.h */,
+				4EEB3D49220A8A8100D4DD91 /* UIImage+Tool.m */,
+				4EEB3D4F220A8C4C00D4DD91 /* UILabel+QuickLabel.h */,
+				4EEB3D50220A8C4C00D4DD91 /* UILabel+QuickLabel.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		4EEB3D4B220A8B6500D4DD91 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D4C220A8B7E00D4DD91 /* Macro.h */,
+			);
+			path = Macro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +246,10 @@
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
+				4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */,
 				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
+				4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */,
+				4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */,
 				4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */,
 				4EEB3D3D220A840E00D4DD91 /* ASTableViewVC.m in Sources */,
 			);
