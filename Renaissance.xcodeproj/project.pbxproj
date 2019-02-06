@@ -18,6 +18,8 @@
 		4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D46220A8A3B00D4DD91 /* UIColor+Hex.m */; };
 		4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D49220A8A8100D4DD91 /* UIImage+Tool.m */; };
 		4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D50220A8C4C00D4DD91 /* UILabel+QuickLabel.m */; };
+		4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */; };
+		4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		4EEB3D4C220A8B7E00D4DD91 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		4EEB3D4F220A8C4C00D4DD91 /* UILabel+QuickLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+QuickLabel.h"; sourceTree = "<group>"; };
 		4EEB3D50220A8C4C00D4DD91 /* UILabel+QuickLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QuickLabel.m"; sourceTree = "<group>"; };
+		4EEB3D53220A8D3B00D4DD91 /* ASTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTableView.h; sourceTree = "<group>"; };
+		4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableView.m; sourceTree = "<group>"; };
+		4EEB3D56220A8F8C00D4DD91 /* ASTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTableViewCell.h; sourceTree = "<group>"; };
+		4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		4EEB3D2B220A824B00D4DD91 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D52220A8D2000D4DD91 /* BaseView */,
 				4EEB3D4B220A8B6500D4DD91 /* Macro */,
 				4EEB3D42220A89F600D4DD91 /* Category */,
 				4EEB3D30220A831C00D4DD91 /* BaseVC */,
@@ -174,6 +181,17 @@
 			path = Macro;
 			sourceTree = "<group>";
 		};
+		4EEB3D52220A8D2000D4DD91 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D53220A8D3B00D4DD91 /* ASTableView.h */,
+				4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */,
+				4EEB3D56220A8F8C00D4DD91 /* ASTableViewCell.h */,
+				4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
@@ -250,6 +269,7 @@
 				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
 				4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */,
 				4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */,
+				4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */,
 				4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */,
 				4EEB3D3D220A840E00D4DD91 /* ASTableViewVC.m in Sources */,
 			);

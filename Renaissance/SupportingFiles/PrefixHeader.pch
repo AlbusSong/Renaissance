@@ -25,4 +25,8 @@
 // Macro
 #import "Macro.h"
 
+// View
+#import "ASTableView.h"
+#import "ASTableViewCell.h"
+
 #endif /* PrefixHeader_pch */

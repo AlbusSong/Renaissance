@@ -12,13 +12,20 @@
 
 @end
 
-@implementation ChannelManageVC
+@implementation ChannelManageVC {
+    UILabel *txtOfNoData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.title = @"Renaissance";
+    
+    txtOfNoData = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:24] textColor:HexColor(@"B0B0B0") parentView:self.tableView];
+    txtOfNoData.textAlignment = NSTextAlignmentCenter;
+    txtOfNoData.text = @"No Channel.\nTry to add a RSS Channel.";
+    txtOfNoData.frame = CGRectMake(0, 0, ScreenW, self.view.frame.size.height);
 }
 
 /*

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASTableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ASTableViewVC : ASViewController
+@interface ASTableViewVC : ASViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) ASTableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataArr;
 
 @end
 
