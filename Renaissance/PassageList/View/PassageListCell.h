@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PassageListCell : ASTableViewCell
 
-- (void)resetSubviews;
+- (void)resetSubviewsWithData:(ChannelItem *)data;
 - (void)showGrayLine:(BOOL)shouldShow;
 
 @end

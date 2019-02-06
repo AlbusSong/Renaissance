@@ -83,13 +83,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.dataArr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url];
+    
     [self.tableView registerClass:[PassageListCell class] forCellReuseIdentifier:@"PassageListCellIdentifier"];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,15 +100,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PassageListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PassageListCellIdentifier" forIndexPath:indexPath];
-    [cell resetSubviews];
-    [cell showGrayLine:(indexPath.row != 9)];
+    [cell resetSubviewsWithData:[self.dataArr objectAtIndex:indexPath.row]];
+    [cell showGrayLine:(indexPath.row != (self.dataArr.count - 1))];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    PassageDetailVC *vcOfPassageDetail = [[PassageDetailVC alloc] init];
+    PassageDetailVC *vcOfPassageDetail = [[PassageDetailVC alloc] initWithChannelItemData:[self.dataArr objectAtIndex:indexPath.row]];
     [self pushVC:vcOfPassageDetail];
 }
 

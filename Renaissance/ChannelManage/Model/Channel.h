@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Channel : NSObject
 
+@property (nonatomic, copy) NSString *urlMd5Value;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *link;
 @property (nonatomic, copy) NSString *url;

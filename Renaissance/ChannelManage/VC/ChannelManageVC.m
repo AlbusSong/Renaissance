@@ -54,7 +54,7 @@
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger count = self.dataArr.count;
     if (count > 0) {
         txtOfNoData.hidden = YES;
@@ -64,13 +64,21 @@
     return count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 93;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelCellIdentifier" forIndexPath:indexPath];
-    [cell resetSubviewsWithData:[self.dataArr objectAtIndex:indexPath.row]];
+    [cell resetSubviewsWithData:[self.dataArr objectAtIndex:indexPath.item]];
     [cell showGrayLine:(indexPath.row != (self.dataArr.count - 1))];
     return cell;
 }
@@ -78,7 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.dataArr objectAtIndex:indexPath.row]];
+    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.dataArr objectAtIndex:indexPath.item]];
     [self pushVC:vcOfPassageList];
 }
 

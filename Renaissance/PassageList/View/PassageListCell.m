@@ -16,7 +16,7 @@
     UIView *grayLine;
 }
 
-- (void)resetSubviews {
+- (void)resetSubviewsWithData:(ChannelItem *)data {
     self.backgroundColor = [UIColor whiteColor];
     self.contentView.backgroundColor = [UIColor whiteColor];
     
@@ -27,7 +27,7 @@
         txtOfTitle.numberOfLines = 3;
         txtOfTitle.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 10).widthIs(widthOfTitle);
     }
-    txtOfTitle.text = @"Trump is Right: The Intelligence Community Needs to ‘Go Back to";
+    txtOfTitle.text = data.title;
     NSMutableParagraphStyle* paragraphOfTitle = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfTitle setLineSpacing:10];
     NSAttributedString *attrOfTitle = [[NSAttributedString alloc] initWithString:txtOfTitle.text attributes:@{NSParagraphStyleAttributeName:paragraphOfTitle}];
@@ -42,7 +42,7 @@
         [self.contentView addSubview:imgv];
         imgv.sd_layout.leftSpaceToView(txtOfTitle, 10).rightSpaceToView(self.contentView, 10).topEqualToView(txtOfTitle).heightIs(92);
     }
-    [imgv sd_setImageWithURL:[NSURL URLWithString:@"https://www.theamericanconservative.com/wp-content/uploads/2018/12/trump-stern.jpg"]];
+    [imgv sd_setImageWithURL:[NSURL URLWithString:data.coverUrl]];
     
     
     if (txtOfStatus == nil) {
@@ -51,7 +51,7 @@
         txtOfStatus.numberOfLines = 2;
         txtOfStatus.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 0).heightIs(46);
     }
-    txtOfStatus.text = @"5 Feb | “Once that picture with the blackface and the Klansman came out, there is no way you can continue to be";
+    txtOfStatus.text = [NSString stringWithFormat:@"5 Feb | %@", data.summary];
     NSMutableParagraphStyle* paragraphOfStatus = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfStatus setLineSpacing:2];
     NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:HexColor(@"202020"), NSParagraphStyleAttributeName:paragraphOfStatus}];

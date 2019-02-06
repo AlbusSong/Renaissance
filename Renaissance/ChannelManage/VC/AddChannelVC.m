@@ -10,6 +10,7 @@
 
 @interface AddChannelVC () <MWFeedParserDelegate>
 
+@property (nonatomic, copy) NSString *inputUrl;
 @property (nonatomic, strong) MWFeedParser *feedParser;
 
 @end
@@ -47,7 +48,9 @@
         [tfd resignFirstResponder];
     }
     
-    self.feedParser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:@"https://www.theamericanconservative.com/feed"]];
+    tfd.text = @"https://www.theamericanconservative.com/feed";
+    self.inputUrl = tfd.text;
+    self.feedParser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:self.inputUrl]];
     self.feedParser.delegate = self;
     self.feedParser.feedParseType = ParseTypeFull;
     self.feedParser.connectionType = ConnectionTypeAsynchronously;
@@ -80,6 +83,11 @@
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
     NSLog(@"_____________________________________");
     NSLog(@"MWFeedItem: %@\n%@\n%@\n%@\n%@\n%@\n%@\n%@\n%@", item.title, item.identifier, item.link, item.date, item.updated, item.summary, item.author, item.enclosures, item.content);
+    
+    [[DBTool sharedInstance] saveToChannelItemTableWithData:item urlMd5Value:[GlobalTool md5String:self.inputUrl]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[DBTool sharedInstance] updateCoverUrl:@"https://www.theamericanconservative.com/wp-content/uploads/2018/07/trump-bolton-pompeo.jpg" identifierMd5Value:[GlobalTool md5String:item.identifier]];
+    });
 }
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {

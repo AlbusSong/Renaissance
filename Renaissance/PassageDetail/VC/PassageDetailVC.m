@@ -10,15 +10,19 @@
 
 @interface PassageDetailVC ()
 
+@property (nonatomic, strong) ChannelItem *data;
+
 @end
 
 @implementation PassageDetailVC
 
-- (instancetype)init {
+- (instancetype)initWithChannelItemData:(ChannelItem *)data {
     self = [super init];
     if (self) {
         self.title = @"Renaissance";
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addChannel)];
+        
+        self.data = data;
     }
     return self;
 }
