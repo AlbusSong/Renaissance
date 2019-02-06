@@ -25,6 +25,9 @@
 		4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D60220A98D600D4DD91 /* AddChannelVC.m */; };
 		4EEB3D66220ABFC300D4DD91 /* UIView+Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D65220ABFC300D4DD91 /* UIView+Candy.m */; };
 		4EEB3D69220AC15B00D4DD91 /* UITextField+QuickTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D68220AC15B00D4DD91 /* UITextField+QuickTextField.m */; };
+		4EEB3D6D220AC5CF00D4DD91 /* PassageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D6C220AC5CF00D4DD91 /* PassageListVC.m */; };
+		4EEB3D71220AD42B00D4DD91 /* PassageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D70220AD42B00D4DD91 /* PassageListCell.m */; };
+		4EEB3D75220AD9E600D4DD91 /* PassageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D74220AD9E600D4DD91 /* PassageDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,12 @@
 		4EEB3D65220ABFC300D4DD91 /* UIView+Candy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Candy.m"; sourceTree = "<group>"; };
 		4EEB3D67220AC15B00D4DD91 /* UITextField+QuickTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QuickTextField.h"; sourceTree = "<group>"; };
 		4EEB3D68220AC15B00D4DD91 /* UITextField+QuickTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+QuickTextField.m"; sourceTree = "<group>"; };
+		4EEB3D6B220AC5CF00D4DD91 /* PassageListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageListVC.h; sourceTree = "<group>"; };
+		4EEB3D6C220AC5CF00D4DD91 /* PassageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageListVC.m; sourceTree = "<group>"; };
+		4EEB3D6F220AD42B00D4DD91 /* PassageListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageListCell.h; sourceTree = "<group>"; };
+		4EEB3D70220AD42B00D4DD91 /* PassageListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageListCell.m; sourceTree = "<group>"; };
+		4EEB3D73220AD9E600D4DD91 /* PassageDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailVC.h; sourceTree = "<group>"; };
+		4EEB3D74220AD9E600D4DD91 /* PassageDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailVC.m; sourceTree = "<group>"; };
 		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
 		D6B1B4998383887A49F0145E /* libPods-Renaissance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Renaissance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,8 +110,8 @@
 		4EEB3D14220A810200D4DD91 /* Renaissance */ = {
 			isa = PBXGroup;
 			children = (
-				4EEB3D2E220A829100D4DD91 /* Reading */,
-				4EEB3D2D220A827400D4DD91 /* ReadingList */,
+				4EEB3D2E220A829100D4DD91 /* PassageDetail */,
+				4EEB3D2D220A827400D4DD91 /* PassageList */,
 				4EEB3D2C220A826A00D4DD91 /* ChannelManage */,
 				4EEB3D2B220A824B00D4DD91 /* Others */,
 				4EEB3D2F220A829D00D4DD91 /* SupportingFiles */,
@@ -130,18 +139,21 @@
 			path = ChannelManage;
 			sourceTree = "<group>";
 		};
-		4EEB3D2D220A827400D4DD91 /* ReadingList */ = {
+		4EEB3D2D220A827400D4DD91 /* PassageList */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D6E220AD41500D4DD91 /* View */,
+				4EEB3D6A220AC5B500D4DD91 /* VC */,
 			);
-			path = ReadingList;
+			path = PassageList;
 			sourceTree = "<group>";
 		};
-		4EEB3D2E220A829100D4DD91 /* Reading */ = {
+		4EEB3D2E220A829100D4DD91 /* PassageDetail */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D72220AD9CB00D4DD91 /* VC */,
 			);
-			path = Reading;
+			path = PassageDetail;
 			sourceTree = "<group>";
 		};
 		4EEB3D2F220A829D00D4DD91 /* SupportingFiles */ = {
@@ -225,6 +237,33 @@
 				4EEB3D5D220A928B00D4DD91 /* ChannelCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4EEB3D6A220AC5B500D4DD91 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D6B220AC5CF00D4DD91 /* PassageListVC.h */,
+				4EEB3D6C220AC5CF00D4DD91 /* PassageListVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4EEB3D6E220AD41500D4DD91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D6F220AD42B00D4DD91 /* PassageListCell.h */,
+				4EEB3D70220AD42B00D4DD91 /* PassageListCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EEB3D72220AD9CB00D4DD91 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB3D73220AD9E600D4DD91 /* PassageDetailVC.h */,
+				4EEB3D74220AD9E600D4DD91 /* PassageDetailVC.m */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		56C284A7FCE3BB8427B48713 /* Pods */ = {
@@ -339,9 +378,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEB3D75220AD9E600D4DD91 /* PassageDetailVC.m in Sources */,
 				4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */,
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D66220ABFC300D4DD91 /* UIView+Candy.m in Sources */,
+				4EEB3D6D220AC5CF00D4DD91 /* PassageListVC.m in Sources */,
 				4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
@@ -349,6 +390,7 @@
 				4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */,
 				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
 				4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */,
+				4EEB3D71220AD42B00D4DD91 /* PassageListCell.m in Sources */,
 				4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */,
 				4EEB3D69220AC15B00D4DD91 /* UITextField+QuickTextField.m in Sources */,
 				4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */,

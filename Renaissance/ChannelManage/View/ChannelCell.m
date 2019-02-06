@@ -27,8 +27,8 @@
         imgv.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
         imgv.clipsToBounds = YES;
         [self.contentView addSubview:imgv];
+        imgv.sd_layout.leftSpaceToView(self.contentView, 20).centerYEqualToView(self.contentView).widthIs(72).heightEqualToWidth();
     }
-    imgv.sd_layout.leftSpaceToView(self.contentView, 20).centerYEqualToView(self.contentView).widthIs(72).heightEqualToWidth();
     [imgv sd_setImageWithURL:[NSURL URLWithString:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png"]];
     
     if (txtOfTitle == nil) {
@@ -42,10 +42,11 @@
     
     if (txtOfStatus == nil) {
         txtOfStatus = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:12] textColor:HexColor(@"2e2e2e2") parentView:self.contentView];
+        txtOfStatus.numberOfLines = 1;
         txtOfStatus.sd_layout.leftSpaceToView(imgv, 10).rightSpaceToView(self.contentView, 0).bottomEqualToView(imgv).heightIs(14);
     }
     txtOfStatus.text = @"2 unread | 5 Feb 2019 latest";
-    NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:txtOfStatus.textColor}];
+    NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:HexColor(@"2e2e2e2")}];
     [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"A62A2A") range:NSMakeRange(0, [@"2 unread |" length])];
     txtOfStatus.attributedText = attrOfStatus;
     

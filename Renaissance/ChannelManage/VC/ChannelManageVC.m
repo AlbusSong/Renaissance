@@ -8,6 +8,7 @@
 
 #import "ChannelManageVC.h"
 #import "AddChannelVC.h"
+#import "PassageListVC.h"
 #import "ChannelCell.h"
 
 @interface ChannelManageVC ()
@@ -67,6 +68,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    PassageListVC *vcOfPassageList = [[PassageListVC alloc] init];
+    [self pushVC:vcOfPassageList];
 }
 
 @end
