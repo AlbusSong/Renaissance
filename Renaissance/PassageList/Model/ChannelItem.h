@@ -1,5 +1,5 @@
 //
-//  GlobalTool.h
+//  ChannelItem.h
 //  Renaissance
 //
 //  Created by Albus on 2019/2/6.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GlobalTool : NSObject
-
-+ (NSString *)md5String:(NSString *)string;
+@interface ChannelItem : NSObject
 
 @end
 

@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+//    NSLog(@"lalfaslfalsflas: %@", [GlobalTool md5String:@"asfjasldfsl"]);
     txtOfHint = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"909090") parentView:nil];
     txtOfHint.text = @"Input a url, then it will be automatically anylisized. For example: https://www.theamericanconservative.com/feed";
     
@@ -73,12 +73,13 @@
     NSLog(@"MWFeedInfo: %@\n%@\n%@\n%@\n%@", info.title, info.link, info.url, info.summary, info.lastBuildDate);
     [[DBTool sharedInstance] saveToChannelTableWithData:info];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[DBTool sharedInstance] updateLogoUrl:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png" ofChannelUrl:info.url.absoluteString title:info.title];
+        [[DBTool sharedInstance] updateLogoUrl:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png" ofChannelUrl:info.url.absoluteString];
     });
 }
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-    NSLog(@"MWFeedItem: %@", item);
+    NSLog(@"_____________________________________");
+    NSLog(@"MWFeedItem: %@\n%@\n%@\n%@\n%@\n%@\n%@\n%@\n%@", item.title, item.identifier, item.link, item.date, item.updated, item.summary, item.author, item.enclosures, item.content);
 }
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {

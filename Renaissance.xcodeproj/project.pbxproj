@@ -11,6 +11,7 @@
 		4E28F60B220AFEFB00C2730B /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60A220AFEFB00C2730B /* GlobalTool.m */; };
 		4E28F60E220AFF0500C2730B /* DBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60D220AFF0500C2730B /* DBTool.m */; };
 		4E28F614220B0B7800C2730B /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F613220B0B7800C2730B /* Channel.m */; };
+		4E28F618220B1A7E00C2730B /* ChannelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F617220B1A7E00C2730B /* ChannelItem.m */; };
 		4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D16220A810200D4DD91 /* AppDelegate.m */; };
 		4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D1E220A810300D4DD91 /* Assets.xcassets */; };
 		4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */; };
@@ -41,6 +42,8 @@
 		4E28F60D220AFF0500C2730B /* DBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTool.m; sourceTree = "<group>"; };
 		4E28F612220B0B7800C2730B /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
 		4E28F613220B0B7800C2730B /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		4E28F616220B1A7E00C2730B /* ChannelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelItem.h; sourceTree = "<group>"; };
+		4E28F617220B1A7E00C2730B /* ChannelItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelItem.m; sourceTree = "<group>"; };
 		4EEB3D12220A810200D4DD91 /* Renaissance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renaissance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEB3D15220A810200D4DD91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EEB3D16220A810200D4DD91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +121,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4E28F615220B1A6000C2730B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E28F616220B1A7E00C2730B /* ChannelItem.h */,
+				4E28F617220B1A7E00C2730B /* ChannelItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4EEB3D09220A810200D4DD91 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,7 @@
 		4EEB3D2D220A827400D4DD91 /* PassageList */ = {
 			isa = PBXGroup;
 			children = (
+				4E28F615220B1A6000C2730B /* Model */,
 				4EEB3D6A220AC5B500D4DD91 /* VC */,
 				4EEB3D6E220AD41500D4DD91 /* View */,
 			);
@@ -429,6 +442,7 @@
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
 				4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */,
 				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
+				4E28F618220B1A7E00C2730B /* ChannelItem.m in Sources */,
 				4E28F60E220AFF0500C2730B /* DBTool.m in Sources */,
 				4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */,
 				4EEB3D71220AD42B00D4DD91 /* PassageListCell.m in Sources */,

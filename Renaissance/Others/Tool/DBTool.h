@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 - (void)saveToChannelTableWithData:(MWFeedInfo *)feedInfo;
-- (void)updateLogoUrl:(NSString *)logoUrl ofChannelUrl:(NSString *)channelUrl title:(NSString *)title;
-- (void)updateLogoUrl:(nullable NSString *)logoUrl favoiconUrl:(nullable NSString *)favoiconUrl ofChannelUrl:(NSString *)channelUrl title:(NSString *)title;
+- (void)updateLogoUrl:(NSString *)logoUrl ofChannelUrl:(NSString *)channelUrl;
+- (void)updateLogoUrl:(nullable NSString *)logoUrl favoiconUrl:(nullable NSString *)favoiconUrl ofChannelUrl:(NSString *)channelUrl;
 - (NSMutableArray *)getAllAvailableChannels;
 
 @end

@@ -59,17 +59,17 @@ static DBTool *instance = nil;
     return result;
 }
 
-- (void)updateLogoUrl:(NSString *)logoUrl ofChannelUrl:(NSString *)channelUrl title:(NSString *)title {
-    [self updateLogoUrl:logoUrl favoiconUrl:nil ofChannelUrl:channelUrl title:title];
+- (void)updateLogoUrl:(NSString *)logoUrl ofChannelUrl:(NSString *)channelUrl {
+    [self updateLogoUrl:logoUrl favoiconUrl:nil ofChannelUrl:channelUrl];
 }
 
-- (void)updateLogoUrl:(nullable NSString *)logoUrl favoiconUrl:(nullable NSString *)favoiconUrl ofChannelUrl:(NSString *)channelUrl title:(NSString *)title {
+- (void)updateLogoUrl:(nullable NSString *)logoUrl favoiconUrl:(nullable NSString *)favoiconUrl ofChannelUrl:(NSString *)channelUrl {
     if (logoUrl.length == 0 && favoiconUrl.length == 0) {
         return;
     }
     
     [self.database open];
-    BOOL result = [self.database executeUpdate:@"UPDATE channel_tb SET logoUrl = ?, favoiconUrl = ? WHERE url = ? AND title = ?;", logoUrl.length > 0 ? logoUrl : @"", favoiconUrl.length > 0 ? favoiconUrl : @"", channelUrl, title];
+    BOOL result = [self.database executeUpdate:@"UPDATE channel_tb SET logoUrl = ?, favoiconUrl = ? WHERE urlMd5Value = ?;", logoUrl.length > 0 ? logoUrl : @"", favoiconUrl.length > 0 ? favoiconUrl : @"", [GlobalTool md5String:channelUrl]];
     
     if (result) {
         NSLog(@"updated successfully");
@@ -85,7 +85,7 @@ static DBTool *instance = nil;
     
     [self.database open];
     
-    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_tb (title, link, url, summary, lastBuildDate) VALUES (?, ?, ?, ?, ?);", feedInfo.title.length > 0 ? feedInfo.title : @"", feedInfo.link.length > 0 ? feedInfo.link : @"", feedInfo.url.absoluteString.length > 0 ? feedInfo.url.absoluteString : @"", feedInfo.summary.length > 0 ? feedInfo.summary : @"", feedInfo.lastBuildDate.length > 0 ? feedInfo.lastBuildDate : @""];
+    BOOL result = [self.database executeUpdate:@"INSERT INTO channel_tb (urlMd5Value, title, link, url, summary, lastBuildDate) VALUES (?, ?, ?, ?, ?, ?);", [GlobalTool md5String:feedInfo.url.absoluteString] ,feedInfo.title.length > 0 ? feedInfo.title : @"", feedInfo.link.length > 0 ? feedInfo.link : @"", feedInfo.url.absoluteString.length > 0 ? feedInfo.url.absoluteString : @"", feedInfo.summary.length > 0 ? feedInfo.summary : @"", feedInfo.lastBuildDate.length > 0 ? feedInfo.lastBuildDate : @""];
     if (result) {
         NSLog(@"cached successfully");
     } else {
@@ -109,7 +109,7 @@ static DBTool *instance = nil;
 
 - (void)initChannelTable {
     if ([self.database open]) {
-        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_tb (id INTEGER PRIMARY KEY AutoIncrement, title varchar DEFAULT '', link varchar DEFAULT '', url varchar UNIQUE DEFAULT '', logoUrl varchar DEFAULT '', favoiconUrl varchar DEFAULT '', summary varchar DEFAULT '', lastBuildDate varchar DEFAULT '', cacheData blob, isDeleted SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0,  createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
+        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_tb (id INTEGER PRIMARY KEY AutoIncrement, urlMd5Value varchar UNIQUE, url varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', logoUrl varchar DEFAULT '', favoiconUrl varchar DEFAULT '', summary varchar DEFAULT '', lastBuildDate varchar DEFAULT '', cacheData blob, isDeleted SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0,  createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
         if (result) {
             NSLog(@"create channel_tb successfully");
         }
