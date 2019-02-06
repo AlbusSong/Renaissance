@@ -24,6 +24,8 @@
     if (self) {
         self.title = @"Renaissance";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addChannel)];
+        
+        [DBTool sharedInstance];
     }
     return self;
 }
@@ -31,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.dataArr = [[DBTool sharedInstance] getAllAvailableChannels];
     
     txtOfNoData = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:24] textColor:HexColor(@"B0B0B0") parentView:self.tableView];
     txtOfNoData.textAlignment = NSTextAlignmentCenter;
@@ -51,8 +55,13 @@
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
-    return self.dataArr.count;
+    NSInteger count = self.dataArr.count;
+    if (count > 0) {
+        txtOfNoData.hidden = YES;
+    } else {
+        txtOfNoData.hidden = NO;
+    }
+    return count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,15 +70,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelCellIdentifier" forIndexPath:indexPath];
-    [cell resetSubviews];
-    [cell showGrayLine:(indexPath.row != 9)];
+    [cell resetSubviewsWithData:[self.dataArr objectAtIndex:indexPath.row]];
+    [cell showGrayLine:(indexPath.row != (self.dataArr.count - 1))];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    PassageListVC *vcOfPassageList = [[PassageListVC alloc] init];
+    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.dataArr objectAtIndex:indexPath.row]];
     [self pushVC:vcOfPassageList];
 }
 

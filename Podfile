@@ -10,6 +10,7 @@ target 'Renaissance' do
   pod 'AFNetworking'
   pod 'MJExtension'
   pod 'SDWebImage'
-  pod 'FMDB' 
+  pod 'FMDB'
+  pod 'MWFeedParser'
 
 end

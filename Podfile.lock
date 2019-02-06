@@ -18,6 +18,15 @@ PODS:
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - MJExtension (3.0.15.1)
+  - MWFeedParser (1.0.1):
+    - MWFeedParser/FeedParser (= 1.0.1)
+    - "MWFeedParser/NSDate+InternetDateTime (= 1.0.1)"
+    - "MWFeedParser/NSString+HTML (= 1.0.1)"
+  - MWFeedParser/FeedParser (1.0.1):
+    - "MWFeedParser/NSDate+InternetDateTime"
+    - "MWFeedParser/NSString+HTML"
+  - "MWFeedParser/NSDate+InternetDateTime (1.0.1)"
+  - "MWFeedParser/NSString+HTML (1.0.1)"
   - SDAutoLayout (2.2.1)
   - SDWebImage (4.4.5):
     - SDWebImage/Core (= 4.4.5)
@@ -27,6 +36,7 @@ DEPENDENCIES:
   - AFNetworking
   - FMDB
   - MJExtension
+  - MWFeedParser
   - SDAutoLayout
   - SDWebImage
 
@@ -35,6 +45,7 @@ SPEC REPOS:
     - AFNetworking
     - FMDB
     - MJExtension
+    - MWFeedParser
     - SDAutoLayout
     - SDWebImage
 
@@ -42,9 +53,10 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
 
-PODFILE CHECKSUM: d47e77459543618e6de70a81c6decb5a84610eb6
+PODFILE CHECKSUM: 9c1df56262b2c051abc5dc40de9c72ecb9ab0113
 
 COCOAPODS: 1.5.3

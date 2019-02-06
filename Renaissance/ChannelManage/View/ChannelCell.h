@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChannelCell : ASTableViewCell
 
-- (void)resetSubviews;
+- (void)resetSubviewsWithData:(Channel *)data;
 
 - (void)showGrayLine:(BOOL)shouldShow;
 

@@ -12,6 +12,13 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+// Model
+#import "Channel.h"
+
+// Tool
+#import "DBTool.h"
+#import "GlobalTool.h"
+
 // Base ViewController
 #import "ASNavigationController.h"
 #import "ASViewController.h"
@@ -37,5 +44,6 @@
 #import <FMDB.h>
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
+#import <MWFeedParser.h>
 
 #endif /* PrefixHeader_pch */

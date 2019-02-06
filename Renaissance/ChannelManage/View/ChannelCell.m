@@ -16,7 +16,7 @@
     UIView *grayLine;
 }
 
-- (void)resetSubviews {
+- (void)resetSubviewsWithData:(Channel *)data {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.backgroundColor = [UIColor whiteColor];
     self.contentView.backgroundColor = [UIColor whiteColor];
@@ -29,14 +29,14 @@
         [self.contentView addSubview:imgv];
         imgv.sd_layout.leftSpaceToView(self.contentView, 20).centerYEqualToView(self.contentView).widthIs(72).heightEqualToWidth();
     }
-    [imgv sd_setImageWithURL:[NSURL URLWithString:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png"]];
+    [imgv sd_setImageWithURL:[NSURL URLWithString:data.logoUrl]];
     
     if (txtOfTitle == nil) {
         txtOfTitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"404040") parentView:self.contentView];
         txtOfTitle.numberOfLines = 2;
         txtOfTitle.sd_layout.leftSpaceToView(imgv, 10).topEqualToView(imgv).widthIs(ScreenW - 20 - 72 - 10 - 30);
     }
-    txtOfTitle.text = @"The American Conservative Feed";
+    txtOfTitle.text = data.title;
     txtOfTitle.sd_layout.heightIs([txtOfTitle sizeThatFits:CGSizeMake(ScreenW - 20 - 72 - 10 - 30, MAXFLOAT)].height);
     
     

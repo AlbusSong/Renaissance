@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		24E897CDCDEA5F8892E14B29 /* libPods-Renaissance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B1B4998383887A49F0145E /* libPods-Renaissance.a */; };
+		4E28F60B220AFEFB00C2730B /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60A220AFEFB00C2730B /* GlobalTool.m */; };
+		4E28F60E220AFF0500C2730B /* DBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60D220AFF0500C2730B /* DBTool.m */; };
+		4E28F614220B0B7800C2730B /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F613220B0B7800C2730B /* Channel.m */; };
 		4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D16220A810200D4DD91 /* AppDelegate.m */; };
 		4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D1E220A810300D4DD91 /* Assets.xcassets */; };
 		4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */; };
@@ -32,6 +35,12 @@
 
 /* Begin PBXFileReference section */
 		09F0DF84715281B1F6CE54AD /* Pods-Renaissance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.debug.xcconfig"; sourceTree = "<group>"; };
+		4E28F609220AFEFB00C2730B /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
+		4E28F60A220AFEFB00C2730B /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
+		4E28F60C220AFF0500C2730B /* DBTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTool.h; sourceTree = "<group>"; };
+		4E28F60D220AFF0500C2730B /* DBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBTool.m; sourceTree = "<group>"; };
+		4E28F612220B0B7800C2730B /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		4E28F613220B0B7800C2730B /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		4EEB3D12220A810200D4DD91 /* Renaissance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renaissance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEB3D15220A810200D4DD91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EEB3D16220A810200D4DD91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -89,6 +98,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E28F608220AFEE700C2730B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4E28F609220AFEFB00C2730B /* GlobalTool.h */,
+				4E28F60A220AFEFB00C2730B /* GlobalTool.m */,
+				4E28F60C220AFF0500C2730B /* DBTool.h */,
+				4E28F60D220AFF0500C2730B /* DBTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		4E28F611220B0B6000C2730B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E28F612220B0B7800C2730B /* Channel.h */,
+				4E28F613220B0B7800C2730B /* Channel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4EEB3D09220A810200D4DD91 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +151,7 @@
 		4EEB3D2B220A824B00D4DD91 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4E28F608220AFEE700C2730B /* Tool */,
 				4EEB3D52220A8D2000D4DD91 /* BaseView */,
 				4EEB3D4B220A8B6500D4DD91 /* Macro */,
 				4EEB3D42220A89F600D4DD91 /* Category */,
@@ -133,8 +163,9 @@
 		4EEB3D2C220A826A00D4DD91 /* ChannelManage */ = {
 			isa = PBXGroup;
 			children = (
-				4EEB3D5B220A927300D4DD91 /* View */,
+				4E28F611220B0B6000C2730B /* Model */,
 				4EEB3D37220A83BA00D4DD91 /* VC */,
+				4EEB3D5B220A927300D4DD91 /* View */,
 			);
 			path = ChannelManage;
 			sourceTree = "<group>";
@@ -142,8 +173,8 @@
 		4EEB3D2D220A827400D4DD91 /* PassageList */ = {
 			isa = PBXGroup;
 			children = (
-				4EEB3D6E220AD41500D4DD91 /* View */,
 				4EEB3D6A220AC5B500D4DD91 /* VC */,
+				4EEB3D6E220AD41500D4DD91 /* View */,
 			);
 			path = PassageList;
 			sourceTree = "<group>";
@@ -151,6 +182,7 @@
 		4EEB3D2E220A829100D4DD91 /* PassageDetail */ = {
 			isa = PBXGroup;
 			children = (
+				4EEB3D77220ADBAD00D4DD91 /* View */,
 				4EEB3D72220AD9CB00D4DD91 /* VC */,
 			);
 			path = PassageDetail;
@@ -266,6 +298,13 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		4EEB3D77220ADBAD00D4DD91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		56C284A7FCE3BB8427B48713 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EEB3D75220AD9E600D4DD91 /* PassageDetailVC.m in Sources */,
+				4E28F614220B0B7800C2730B /* Channel.m in Sources */,
 				4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */,
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D66220ABFC300D4DD91 /* UIView+Candy.m in Sources */,
@@ -389,6 +429,7 @@
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
 				4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */,
 				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
+				4E28F60E220AFF0500C2730B /* DBTool.m in Sources */,
 				4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */,
 				4EEB3D71220AD42B00D4DD91 /* PassageListCell.m in Sources */,
 				4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */,
@@ -396,6 +437,7 @@
 				4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */,
 				4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */,
 				4EEB3D3D220A840E00D4DD91 /* ASTableViewVC.m in Sources */,
+				4E28F60B220AFEFB00C2730B /* GlobalTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

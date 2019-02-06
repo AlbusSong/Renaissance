@@ -1,18 +1,16 @@
 //
-//  PassageListVC.h
+//  GlobalTool.h
 //  Renaissance
 //
 //  Created by Albus on 2019/2/6.
 //  Copyright © 2019 Albus. All rights reserved.
 //
 
-#import "ASTableViewVC.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PassageListVC : ASTableViewVC
-
-- (instancetype)initWithChannelData:(Channel *)data;
+@interface GlobalTool : NSObject
 
 @end
 

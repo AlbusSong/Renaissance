@@ -56,20 +56,24 @@
 
 @interface PassageListVC ()
 
+@property (nonatomic, strong) Channel *data;
+
 @end
 
 @implementation PassageListVC
 
-- (instancetype)init {
+- (instancetype)initWithChannelData:(Channel *)data {
     self = [super init];
     if (self) {
-        self.title = @"The American Conservative";
+        self.title = nil;
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addChannel)];
+        
+        self.data = data;
         
         PassageListTitleView *titleView = [[PassageListTitleView alloc] init];
         titleView.frame = CGRectMake(0, 0, ScreenW - 80, 45);
-        [titleView setTitle:@"The American Conservative"];
-        [titleView setImageWithURL:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png"];
+        [titleView setTitle:self.data.title];
+        [titleView setImageWithURL:self.data.logoUrl];
         self.navigationItem.titleView = titleView;
     }
     return self;

@@ -8,7 +8,9 @@
 
 #import "AddChannelVC.h"
 
-@interface AddChannelVC ()
+@interface AddChannelVC () <MWFeedParserDelegate>
+
+@property (nonatomic, strong) MWFeedParser *feedParser;
 
 @end
 
@@ -45,7 +47,12 @@
         [tfd resignFirstResponder];
     }
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    self.feedParser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:@"https://www.theamericanconservative.com/feed"]];
+    self.feedParser.delegate = self;
+    self.feedParser.feedParseType = ParseTypeFull;
+    self.feedParser.connectionType = ConnectionTypeAsynchronously;
+    [self.feedParser parse];
+//    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)cancel {
@@ -54,6 +61,32 @@
     }
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark MWFeedParserDelegate
+
+- (void)feedParserDidStart:(MWFeedParser *)parser {
+    
+}
+
+- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
+    NSLog(@"MWFeedInfo: %@\n%@\n%@\n%@\n%@", info.title, info.link, info.url, info.summary, info.lastBuildDate);
+    [[DBTool sharedInstance] saveToChannelTableWithData:info];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[DBTool sharedInstance] updateLogoUrl:@"https://www.theamericanconservative.com/wp-content/themes/Starkers/images/touch-icon-192.png" ofChannelUrl:info.url.absoluteString title:info.title];
+    });
+}
+
+- (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
+    NSLog(@"MWFeedItem: %@", item);
+}
+
+- (void)feedParserDidFinish:(MWFeedParser *)parser {
+    
+}
+
+- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
+    
 }
 
 #pragma mark textFieldDidChange
