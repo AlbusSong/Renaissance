@@ -164,6 +164,11 @@
         NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;
         NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
+        
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        [paragraph setLineSpacing:8];
+        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+        
         NSArray *childrenElements = topElement.children;
         for (int i = 0; i < childrenElements.count; i++) {
             TFHppleElement *element = [childrenElements objectAtIndex:i];
@@ -174,12 +179,16 @@
                 CGFloat widthOfImg = [theAttributes[@"width"] floatValue];
                 CGFloat heightOfImg = [theAttributes[@"height"] floatValue];
                 return heightOfImg * (ScreenW - 20) / widthOfImg;
+            } else if ([element.tagName isEqualToString:@"a"]) {
+                NSLog(@"#############: %@", element);
+                NSRange rangeOfA = [topElement.content rangeOfString:element.content];
+                if (rangeOfA.location != NSNotFound) {
+                    NSMutableAttributedString *attriOfA = [[NSMutableAttributedString alloc] initWithString:element.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:[UIColor greenColor], NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
+                    [attri replaceCharactersInRange:rangeOfA withAttributedString:attriOfA];
+                }
             }
         }
         
-        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-        [paragraph setLineSpacing:8];
-        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
         txtForSizeFitting.attributedText = attri;
         if ([topElement.tagName isEqualToString:@"p"]) {
             result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10*2, MAXFLOAT)].height;
@@ -211,28 +220,44 @@
     } else {
         NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;
-//        NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
-        NSArray *childrenElements = topElement.children;
-        for (int i = 0; i < childrenElements.count; i++) {
-            TFHppleElement *element = [childrenElements objectAtIndex:i];
-//            NSLog(@"element: %@", element);
-            if ([element.tagName isEqualToString:@"img"]) {
-                NSLog(@"*****************: %@", element);
-                NSDictionary *theAttributes = element.attributes;
-                [cell resetSubviewsWithImageUrl:theAttributes[@"src"]];
-                return cell;
-            }
-        }
         
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         [paragraph setLineSpacing:8];
         NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+        
+//        NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
+        NSArray *childrenElements = topElement.children;
+        NSRange rangeOfLink = NSMakeRange(-1, -1);
+        NSMutableAttributedString *attriOfLink;
+//        NSLog(@"rangerange: %li, %li", range.location, range.length);
+        for (int i = 0; i < childrenElements.count; i++) {
+            TFHppleElement *element = [childrenElements objectAtIndex:i];
+//            NSLog(@"element: %@", element);
+            if ([element.tagName isEqualToString:@"img"]) {
+                NSDictionary *theAttributes = element.attributes;
+                [cell resetSubviewsWithImageUrl:theAttributes[@"src"]];
+                return cell;
+            } else if ([element.tagName isEqualToString:@"a"]) {
+                NSRange rangeOfA = [topElement.content rangeOfString:element.content];
+                if (rangeOfA.location != NSNotFound) {
+                    attriOfLink = [[NSMutableAttributedString alloc] initWithString:element.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"36428f"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
+                    rangeOfLink = rangeOfA;
+                }
+            }
+        }
+        
         if ([topElement.tagName isEqualToString:@"p"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"303030") range:NSMakeRange(0, topElement.content.length)];
+            if (attriOfLink && rangeOfLink.location >= 0) {
+                [attri replaceCharactersInRange:rangeOfLink withAttributedString:attriOfLink];
+            }
             [cell resetSubviewsWithAttributeString:attri];
             [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
         } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"606060") range:NSMakeRange(0, topElement.content.length)];
+            if (attriOfLink && rangeOfLink.location >= 0) {
+                [attri replaceCharactersInRange:rangeOfLink withAttributedString:attriOfLink];
+            }
             [cell resetSubviewsWithAttributeString:attri];
             [cell resetTextInsets:UIEdgeInsetsMake(0, 20, 0, 10)];
             [cell showVerticalGrayLine];
