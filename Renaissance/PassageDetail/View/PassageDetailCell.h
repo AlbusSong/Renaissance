@@ -14,7 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString;
 
-- (void)resetInsets:(UIEdgeInsets)insets;
+- (void)resetSubviewsWithImageUrl:(NSString *)imageUrl;
+
+- (void)resetTextInsets:(UIEdgeInsets)insets;
 
 - (void)showVerticalGrayLine;
 

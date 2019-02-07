@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UILabel *txt;
 @property (nonatomic, strong) UIView *verticalGrayLine;
+@property (nonatomic, strong) UIImageView *imgv;
 
 @end
 
@@ -19,12 +20,30 @@
     
 }
 
-- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString {
-    self.txt.attributedText = attributeString;
-    self.verticalGrayLine.hidden = YES;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
 }
 
-- (void)resetInsets:(UIEdgeInsets)insets {
+- (void)resetSubviewsWithImageUrl:(NSString *)imageUrl {
+    self.txt.hidden = YES;
+    self.verticalGrayLine.hidden = YES;
+    
+    self.imgv.hidden = NO;
+    [self.imgv sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+}
+
+- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString {
+    self.txt.hidden = NO;
+    self.txt.attributedText = attributeString;
+    self.verticalGrayLine.hidden = YES;
+    self.imgv.hidden = YES;
+}
+
+- (void)resetTextInsets:(UIEdgeInsets)insets {
     self.txt.sd_resetNewLayout.leftSpaceToView(self.contentView, insets.left).topSpaceToView(self.contentView, insets.top).bottomSpaceToView(self.contentView, insets.bottom).rightSpaceToView(self.contentView, insets.right);
 }
 
@@ -50,6 +69,18 @@
         _verticalGrayLine.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 0).bottomSpaceToView(self.contentView, 0).widthIs(1);
     }
     return _verticalGrayLine;
+}
+
+- (UIImageView *)imgv {
+    if (_imgv == nil) {
+        _imgv = [[UIImageView alloc] init];
+        _imgv.backgroundColor = HexColor(@"f3f3f3");
+        _imgv.clipsToBounds = YES;
+        _imgv.contentMode = UIViewContentModeScaleAspectFill;
+        [self.contentView addSubview:_imgv];
+        _imgv.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 0).bottomSpaceToView(self.contentView, 0).rightSpaceToView(self.contentView, 10);
+    }
+    return _imgv;
 }
 
 @end

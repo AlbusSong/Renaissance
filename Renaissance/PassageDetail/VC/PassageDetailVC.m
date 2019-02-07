@@ -168,6 +168,13 @@
         for (int i = 0; i < childrenElements.count; i++) {
             TFHppleElement *element = [childrenElements objectAtIndex:i];
             NSLog(@"element: %@", element);
+            if ([element.tagName isEqualToString:@"img"]) {
+                NSDictionary *theAttributes = element.attributes;
+//                NSLog(@"^^^^^^^^^^^^^^^^^: %@", theAttributes);
+                CGFloat widthOfImg = [theAttributes[@"width"] floatValue];
+                CGFloat heightOfImg = [theAttributes[@"height"] floatValue];
+                return heightOfImg * (ScreenW - 20) / widthOfImg;
+            }
         }
         
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
@@ -191,14 +198,14 @@
         [paragraphOfTitle setLineSpacing:10];
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.title attributes:@{NSParagraphStyleAttributeName:paragraphOfTitle, NSForegroundColorAttributeName:HexColor(@"202020"), NSFontAttributeName:[UIFont systemFontOfSize:24]}];
         [cell resetSubviewsWithAttributeString:attri];
-        [cell resetInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+        [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     } else if (indexPath.section == 1) {
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.author attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         [cell resetSubviewsWithAttributeString:attri];
     } else if (indexPath.section == 2) {
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         [cell resetSubviewsWithAttributeString:attri];
-        [cell resetInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+        [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     } else if (indexPath.section == 3) {
         
     } else {
@@ -209,6 +216,12 @@
         for (int i = 0; i < childrenElements.count; i++) {
             TFHppleElement *element = [childrenElements objectAtIndex:i];
 //            NSLog(@"element: %@", element);
+            if ([element.tagName isEqualToString:@"img"]) {
+                NSLog(@"*****************: %@", element);
+                NSDictionary *theAttributes = element.attributes;
+                [cell resetSubviewsWithImageUrl:theAttributes[@"src"]];
+                return cell;
+            }
         }
         
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
@@ -217,11 +230,11 @@
         if ([topElement.tagName isEqualToString:@"p"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"303030") range:NSMakeRange(0, topElement.content.length)];
             [cell resetSubviewsWithAttributeString:attri];
-            [cell resetInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
         } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"606060") range:NSMakeRange(0, topElement.content.length)];
             [cell resetSubviewsWithAttributeString:attri];
-            [cell resetInsets:UIEdgeInsetsMake(0, 20, 0, 10)];
+            [cell resetTextInsets:UIEdgeInsetsMake(0, 20, 0, 10)];
             [cell showVerticalGrayLine];
         }
     }
