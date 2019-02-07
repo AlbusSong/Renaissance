@@ -12,5 +12,6 @@ target 'Renaissance' do
   pod 'SDWebImage'
   pod 'FMDB'
   pod 'MWFeedParser'
+  pod 'Neat'
 
 end

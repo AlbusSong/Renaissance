@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PassageDetailVC : ASViewController
+@interface PassageDetailVC : ASTableViewVC
 
 - (instancetype)initWithChannelItemData:(ChannelItem *)data;
 

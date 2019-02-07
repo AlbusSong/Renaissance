@@ -27,6 +27,7 @@ PODS:
     - "MWFeedParser/NSString+HTML"
   - "MWFeedParser/NSDate+InternetDateTime (1.0.1)"
   - "MWFeedParser/NSString+HTML (1.0.1)"
+  - Neat (0.1)
   - SDAutoLayout (2.2.1)
   - SDWebImage (4.4.5):
     - SDWebImage/Core (= 4.4.5)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - FMDB
   - MJExtension
   - MWFeedParser
+  - Neat
   - SDAutoLayout
   - SDWebImage
 
@@ -46,6 +48,7 @@ SPEC REPOS:
     - FMDB
     - MJExtension
     - MWFeedParser
+    - Neat
     - SDAutoLayout
     - SDWebImage
 
@@ -54,9 +57,10 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
+  Neat: 0e9eeeaaf155dbced85c369f23f867c2741618cd
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
 
-PODFILE CHECKSUM: 9c1df56262b2c051abc5dc40de9c72ecb9ab0113
+PODFILE CHECKSUM: e5ef6afef60b001bb6e68fc564d03ef552df33a2
 
 COCOAPODS: 1.5.3
