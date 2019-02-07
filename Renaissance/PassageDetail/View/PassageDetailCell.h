@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)resetInsets:(UIEdgeInsets)insets;
 
+- (void)showVerticalGrayLine;
+
 @end
 
 NS_ASSUME_NONNULL_END

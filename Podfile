@@ -13,6 +13,7 @@ target 'Renaissance' do
   pod 'FMDB'
   pod 'MWFeedParser'
 #  pod 'Neat'
-  pod 'IGHTMLQuery'
+#  pod 'IGHTMLQuery'
+  pod 'CJLabel'
 
 end

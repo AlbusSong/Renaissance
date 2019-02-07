@@ -50,6 +50,7 @@
     
     txtForSizeFitting = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"ffffff") parentView:nil];
     [self.tableView registerClass:[PassageDetailCell class] forCellReuseIdentifier:@"PassageDetailCellIdentifier"];
+    self.tableView.backgroundColor = self.view.backgroundColor;
 }
 
 - (void)parseData {
@@ -118,7 +119,7 @@
     
     NSArray *arrOfElements = [self.dataArr firstObject];
     for (TFHppleElement *element in arrOfElements) {
-        NSLog(@"element: %@", element);;
+//        NSLog(@"element: %@", element.tagName);;
     }
 }
 
@@ -141,12 +142,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat result = 0.0;
     if (indexPath.section == 0) {
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         [paragraph setLineSpacing:10];
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.title attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"202020"), NSFontAttributeName:[UIFont systemFontOfSize:24]}];
         txtForSizeFitting.attributedText = attri;
-        return [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
+        result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
     } else if (indexPath.section == 1) {
 //        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.author attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
@@ -155,13 +157,30 @@
     } else if (indexPath.section == 2) {
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         txtForSizeFitting.attributedText = attri;
-        return [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
+        result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
     } else if (indexPath.section == 3) {
-        
+        result = 160;
     } else {
+        NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
+        TFHppleElement *topElement = arrOfElements.firstObject;
+        NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
+        NSArray *childrenElements = topElement.children;
+        for (int i = 0; i < childrenElements.count; i++) {
+            TFHppleElement *element = [childrenElements objectAtIndex:i];
+            NSLog(@"element: %@", element);
+        }
         
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        [paragraph setLineSpacing:8];
+        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+        txtForSizeFitting.attributedText = attri;
+        if ([topElement.tagName isEqualToString:@"p"]) {
+            result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10*2, MAXFLOAT)].height;
+        } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
+            result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10 - 20, MAXFLOAT)].height;
+        }
     }
-    return 160;
+    return ceilf(result);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -179,6 +198,32 @@
     } else if (indexPath.section == 2) {
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         [cell resetSubviewsWithAttributeString:attri];
+        [cell resetInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    } else if (indexPath.section == 3) {
+        
+    } else {
+        NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
+        TFHppleElement *topElement = arrOfElements.firstObject;
+//        NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
+        NSArray *childrenElements = topElement.children;
+        for (int i = 0; i < childrenElements.count; i++) {
+            TFHppleElement *element = [childrenElements objectAtIndex:i];
+//            NSLog(@"element: %@", element);
+        }
+        
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        [paragraph setLineSpacing:8];
+        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+        if ([topElement.tagName isEqualToString:@"p"]) {
+            [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"303030") range:NSMakeRange(0, topElement.content.length)];
+            [cell resetSubviewsWithAttributeString:attri];
+            [cell resetInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+        } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
+            [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"606060") range:NSMakeRange(0, topElement.content.length)];
+            [cell resetSubviewsWithAttributeString:attri];
+            [cell resetInsets:UIEdgeInsetsMake(0, 20, 0, 10)];
+            [cell showVerticalGrayLine];
+        }
     }
     
     return cell;
