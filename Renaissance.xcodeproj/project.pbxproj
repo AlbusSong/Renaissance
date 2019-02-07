@@ -32,6 +32,12 @@
 		4EEB3D6D220AC5CF00D4DD91 /* PassageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D6C220AC5CF00D4DD91 /* PassageListVC.m */; };
 		4EEB3D71220AD42B00D4DD91 /* PassageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D70220AD42B00D4DD91 /* PassageListCell.m */; };
 		4EEB3D75220AD9E600D4DD91 /* PassageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D74220AD9E600D4DD91 /* PassageDetailVC.m */; };
+		4EECE759220BCEB3004370BB /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE754220BCEB3004370BB /* TFHppleElement.m */; };
+		4EECE75A220BCEB3004370BB /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE755220BCEB3004370BB /* TFHpple.m */; };
+		4EECE75B220BCEB3004370BB /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE758220BCEB3004370BB /* XPathQuery.m */; };
+		4EECE75E220BEF60004370BB /* ASView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE75D220BEF60004370BB /* ASView.m */; };
+		4EECE761220BEF79004370BB /* PassageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE760220BEF79004370BB /* PassageDetailView.m */; };
+		4EECE763220BF171004370BB /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EECE762220BF171004370BB /* libxml2.2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +91,17 @@
 		4EEB3D70220AD42B00D4DD91 /* PassageListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageListCell.m; sourceTree = "<group>"; };
 		4EEB3D73220AD9E600D4DD91 /* PassageDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailVC.h; sourceTree = "<group>"; };
 		4EEB3D74220AD9E600D4DD91 /* PassageDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailVC.m; sourceTree = "<group>"; };
+		4EECE753220BCEB3004370BB /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		4EECE754220BCEB3004370BB /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		4EECE755220BCEB3004370BB /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		4EECE756220BCEB3004370BB /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		4EECE757220BCEB3004370BB /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		4EECE758220BCEB3004370BB /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		4EECE75C220BEF60004370BB /* ASView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASView.h; sourceTree = "<group>"; };
+		4EECE75D220BEF60004370BB /* ASView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASView.m; sourceTree = "<group>"; };
+		4EECE75F220BEF79004370BB /* PassageDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailView.h; sourceTree = "<group>"; };
+		4EECE760220BEF79004370BB /* PassageDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailView.m; sourceTree = "<group>"; };
+		4EECE762220BF171004370BB /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
 		D6B1B4998383887A49F0145E /* libPods-Renaissance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Renaissance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EECE763220BF171004370BB /* libxml2.2.tbd in Frameworks */,
 				24E897CDCDEA5F8892E14B29 /* libPods-Renaissance.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +181,7 @@
 		4EEB3D2B220A824B00D4DD91 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4EECE751220BCE73004370BB /* ThirdParty */,
 				4E28F608220AFEE700C2730B /* Tool */,
 				4EEB3D52220A8D2000D4DD91 /* BaseView */,
 				4EEB3D4B220A8B6500D4DD91 /* Macro */,
@@ -271,6 +290,8 @@
 				4EEB3D54220A8D3B00D4DD91 /* ASTableView.m */,
 				4EEB3D56220A8F8C00D4DD91 /* ASTableViewCell.h */,
 				4EEB3D57220A8F8C00D4DD91 /* ASTableViewCell.m */,
+				4EECE75C220BEF60004370BB /* ASView.h */,
+				4EECE75D220BEF60004370BB /* ASView.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -314,8 +335,31 @@
 		4EEB3D77220ADBAD00D4DD91 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4EECE75F220BEF79004370BB /* PassageDetailView.h */,
+				4EECE760220BEF79004370BB /* PassageDetailView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4EECE751220BCE73004370BB /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				4EECE752220BCEA2004370BB /* Hpple */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		4EECE752220BCEA2004370BB /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				4EECE756220BCEB3004370BB /* TFHpple.h */,
+				4EECE755220BCEB3004370BB /* TFHpple.m */,
+				4EECE753220BCEB3004370BB /* TFHppleElement.h */,
+				4EECE754220BCEB3004370BB /* TFHppleElement.m */,
+				4EECE757220BCEB3004370BB /* XPathQuery.h */,
+				4EECE758220BCEB3004370BB /* XPathQuery.m */,
+			);
+			path = Hpple;
 			sourceTree = "<group>";
 		};
 		56C284A7FCE3BB8427B48713 /* Pods */ = {
@@ -330,6 +374,7 @@
 		EC735F7AE612E868AAAC63EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EECE762220BF171004370BB /* libxml2.2.tbd */,
 				D6B1B4998383887A49F0145E /* libPods-Renaissance.a */,
 			);
 			name = Frameworks;
@@ -432,13 +477,18 @@
 			files = (
 				4EEB3D75220AD9E600D4DD91 /* PassageDetailVC.m in Sources */,
 				4E28F614220B0B7800C2730B /* Channel.m in Sources */,
+				4EECE75B220BCEB3004370BB /* XPathQuery.m in Sources */,
 				4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */,
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D66220ABFC300D4DD91 /* UIView+Candy.m in Sources */,
 				4EEB3D6D220AC5CF00D4DD91 /* PassageListVC.m in Sources */,
 				4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */,
+				4EECE75E220BEF60004370BB /* ASView.m in Sources */,
+				4EECE75A220BCEB3004370BB /* TFHpple.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
+				4EECE759220BCEB3004370BB /* TFHppleElement.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
+				4EECE761220BEF79004370BB /* PassageDetailView.m in Sources */,
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
 				4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */,
 				4EEB3D33220A835100D4DD91 /* ASNavigationController.m in Sources */,
@@ -589,6 +639,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7C242XVVZ;
 				GCC_PREFIX_HEADER = /Users/albus/Desktop/iOS/Renaissance/Renaissance/SupportingFiles/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MWFeedParser\"",
+					"\"${PODS_ROOT}/Headers/Public/SDAutoLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SDK_ROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Renaissance/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +670,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7C242XVVZ;
 				GCC_PREFIX_HEADER = /Users/albus/Desktop/iOS/Renaissance/Renaissance/SupportingFiles/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MWFeedParser\"",
+					"\"${PODS_ROOT}/Headers/Public/SDAutoLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SDK_ROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Renaissance/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

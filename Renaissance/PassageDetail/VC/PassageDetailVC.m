@@ -7,6 +7,7 @@
 //
 
 #import "PassageDetailVC.h"
+#import "PassageDetailView.h"
 
 @interface PassageDetailVC ()
 
@@ -30,6 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    PassageDetailView *viewOfPassageDetail = [[PassageDetailView alloc] init];
+    viewOfPassageDetail.frame = CGRectMake(0, Height_NavBar, ScreenW, ScreenH - Height_NavBar);
+    [self.view addSubview:viewOfPassageDetail];
 }
 
 @end
