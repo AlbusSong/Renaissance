@@ -73,4 +73,13 @@
     return 160;
 }
 
+#pragma mark getter
+
+- (NSMutableArray *)dataArr {
+    if (_dataArr == nil) {
+        _dataArr = [[NSMutableArray alloc] init];
+    }
+    return _dataArr;
+}
+
 @end

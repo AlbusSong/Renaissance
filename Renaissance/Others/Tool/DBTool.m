@@ -106,7 +106,7 @@ static DBTool *instance = nil;
 - (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl {
     [self.database open];
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    FMResultSet* selectResult = [self.database executeQuery:@"SELECT * FROM channel_item_tb WHERE urlMd5Value = ? ORDER BY createTime;", [GlobalTool md5String:feedUrl]];
+    FMResultSet* selectResult = [self.database executeQuery:@"SELECT * FROM channel_item_tb WHERE urlMd5Value = ? ORDER BY date DESC;", [GlobalTool md5String:feedUrl]];
     while ([selectResult next]) {
         ChannelItem *data = [[ChannelItem alloc] init];
         data.urlMd5Value = [selectResult stringForColumn:@"urlMd5Value"];
