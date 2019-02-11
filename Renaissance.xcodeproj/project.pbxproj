@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24E897CDCDEA5F8892E14B29 /* libPods-Renaissance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B1B4998383887A49F0145E /* libPods-Renaissance.a */; };
+		4E0023092211B5B300350580 /* ChannelService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0023082211B5B300350580 /* ChannelService.m */; };
 		4E28F60B220AFEFB00C2730B /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60A220AFEFB00C2730B /* GlobalTool.m */; };
 		4E28F60E220AFF0500C2730B /* DBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60D220AFF0500C2730B /* DBTool.m */; };
 		4E28F614220B0B7800C2730B /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F613220B0B7800C2730B /* Channel.m */; };
@@ -45,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		09F0DF84715281B1F6CE54AD /* Pods-Renaissance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.debug.xcconfig"; sourceTree = "<group>"; };
+		4E0023072211B5B300350580 /* ChannelService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelService.h; sourceTree = "<group>"; };
+		4E0023082211B5B300350580 /* ChannelService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelService.m; sourceTree = "<group>"; };
 		4E28F609220AFEFB00C2730B /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		4E28F60A220AFEFB00C2730B /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
 		4E28F60C220AFF0500C2730B /* DBTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBTool.h; sourceTree = "<group>"; };
@@ -128,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0023062211B59100350580 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4E0023072211B5B300350580 /* ChannelService.h */,
+				4E0023082211B5B300350580 /* ChannelService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4E28F608220AFEE700C2730B /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +224,7 @@
 		4EEB3D2C220A826A00D4DD91 /* ChannelManage */ = {
 			isa = PBXGroup;
 			children = (
+				4E0023062211B59100350580 /* Service */,
 				4E28F611220B0B6000C2730B /* Model */,
 				4EEB3D37220A83BA00D4DD91 /* VC */,
 				4EEB3D5B220A927300D4DD91 /* View */,
@@ -506,6 +519,7 @@
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D66220ABFC300D4DD91 /* UIView+Candy.m in Sources */,
 				4EEB3D6D220AC5CF00D4DD91 /* PassageListVC.m in Sources */,
+				4E0023092211B5B300350580 /* ChannelService.m in Sources */,
 				4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */,
 				4EECE75E220BEF60004370BB /* ASView.m in Sources */,
 				4EA7FE31220C30EB00C96287 /* PassageDetailTextStorage.m in Sources */,

@@ -87,6 +87,18 @@
     self.dataArr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString];
     
     [self.tableView registerClass:[PassageListCell class] forCellReuseIdentifier:@"PassageListCellIdentifier"];
+    self.tableView.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView.refreshControl addTarget:self action:@selector(refreshControlChanged:) forControlEvents:UIControlEventValueChanged];
+//    [self.tableView.refreshControl endRefreshing];
+}
+
+#pragma mark action
+
+- (void)refreshControlChanged:(UIRefreshControl *)sender {
+    NSLog(@"sender: %@\n%li", sender, sender.isRefreshing);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [sender endRefreshing];
+    });
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
