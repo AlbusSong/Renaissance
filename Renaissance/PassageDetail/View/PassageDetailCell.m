@@ -61,6 +61,8 @@
     
     NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
     [paragraph setLineSpacing:8];
+    
+    WS(weakSelf)
     for (NSDictionary *dictOfLinkData in linkDataArr) {
         NSRange range = [dictOfLinkData[@"range"] rangeValue];
         NSString *content = [dictOfLinkData objectForKey:@"content"];
@@ -72,6 +74,9 @@
         [mAttributeString yy_setTextHighlightRange:range color:HexColor(@"36428f") backgroundColor:[UIColor yellowColor] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
             NSLog(@"content: %@", content);
             NSLog(@"attributes: %@", attributes);
+            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(clickedLink:)]) {
+                [weakSelf.delegate clickedLink:[attributes objectForKey:@"href"]];
+            }
         }];
     }
     self.txtOfContent.attributedText = (NSAttributedString *)mAttributeString;

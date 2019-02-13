@@ -10,7 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol PassageDetailCellDelegate <NSObject>
+
+- (void)clickedLink:(NSString *)linkUrl;
+
+@end
+
 @interface PassageDetailCell : ASTableViewCell
+
+@property (nonatomic, weak) id <PassageDetailCellDelegate> delegate;
 
 - (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withLinkDataArr:(nullable NSArray *)linkDataArr;
 

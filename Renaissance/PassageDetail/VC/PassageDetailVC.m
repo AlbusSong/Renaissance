@@ -11,9 +11,10 @@
 #import "PassageDetailView.h"
 #import "PassageDetailCell.h"
 #import "TFHpple.h"
+#import <SafariServices/SafariServices.h>
 //#import <IGHTMLQuery.h>
 
-@interface PassageDetailVC ()
+@interface PassageDetailVC () <PassageDetailCellDelegate>
 
 @property (nonatomic, strong) ChannelItem *data;
 @property (nonatomic, copy) NSString *content;
@@ -207,6 +208,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PassageDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PassageDetailCellIdentifier" forIndexPath:indexPath];
+    cell.delegate = self;
     
     if (indexPath.section == 0) {
         NSMutableParagraphStyle *paragraphOfTitle = [[NSMutableParagraphStyle alloc] init];
@@ -269,6 +271,13 @@
     }
     
     return cell;
+}
+
+#pragma mark PassageDetailCellDelegate
+
+- (void)clickedLink:(NSString *)linkUrl {
+    SFSafariViewController *vcOfSafari = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:linkUrl]];
+    [self presentViewController:vcOfSafari animated:YES completion:nil];
 }
 
 @end
