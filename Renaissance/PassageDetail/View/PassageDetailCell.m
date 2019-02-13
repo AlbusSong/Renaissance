@@ -40,17 +40,41 @@
 }
 
 - (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString {
+    [self resetSubviewsWithAttributeString:attributeString withLinkDataArr:nil];
+}
+
+- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withLinkDataArr:(nullable NSArray *)linkDataArr {
     self.txt.hidden = NO;
     self.txt.attributedText = attributeString;
     self.txt.hidden = YES;
     
-    self.txtOfContent.hidden = NO;
-    NSMutableAttributedString *mAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
-//    mAttributeString.yy_color = HexColor(@"2a2a2a");
-    self.txtOfContent.attributedText = (NSAttributedString *)mAttributeString;
-    
     self.verticalGrayLine.hidden = YES;
     self.imgv.hidden = YES;
+    
+    self.txtOfContent.hidden = NO;
+    NSMutableAttributedString *mAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
+    
+    if (linkDataArr.count == 0) {
+        self.txtOfContent.attributedText = (NSAttributedString *)mAttributeString;
+        return;
+    }
+    
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    [paragraph setLineSpacing:8];
+    for (NSDictionary *dictOfLinkData in linkDataArr) {
+        NSRange range = [dictOfLinkData[@"range"] rangeValue];
+        NSString *content = [dictOfLinkData objectForKey:@"content"];
+        NSDictionary *attributes = [dictOfLinkData objectForKey:@"attributes"];
+        
+        NSAttributedString *attriOfUnderline = [[NSAttributedString alloc] initWithString:content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"36428f"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [mAttributeString replaceCharactersInRange:range withAttributedString:attriOfUnderline];
+        
+        [mAttributeString yy_setTextHighlightRange:range color:HexColor(@"36428f") backgroundColor:[UIColor yellowColor] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+            NSLog(@"content: %@", content);
+            NSLog(@"attributes: %@", attributes);
+        }];
+    }
+    self.txtOfContent.attributedText = (NSAttributedString *)mAttributeString;
 }
 
 - (void)resetTextInsets:(UIEdgeInsets)insets {
@@ -101,8 +125,8 @@
         _txtOfContent = [[YYLabel alloc] initWithFrame:CGRectZero];
         _txtOfContent.textVerticalAlignment = YYTextVerticalAlignmentTop;
         _txtOfContent.displaysAsynchronously = YES;
-        _txtOfContent.fadeOnAsynchronouslyDisplay = NO;
-        _txtOfContent.fadeOnHighlight = NO;
+//        _txtOfContent.fadeOnAsynchronouslyDisplay = NO;
+//        _txtOfContent.fadeOnHighlight = NO;
         _txtOfContent.numberOfLines = 0;
 //        _txtOfContent.font = [UIFont systemFontOfSize:16];
         [self.contentView addSubview:_txtOfContent];

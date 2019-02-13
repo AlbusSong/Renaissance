@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PassageDetailCell : ASTableViewCell
 
+- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withLinkDataArr:(nullable NSArray *)linkDataArr;
+
 - (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString;
 
 - (void)resetSubviewsWithImageUrl:(NSString *)imageUrl;

@@ -200,6 +200,8 @@
     YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
     result = textLayout.textBoundingSize.height;
     
+    result = MAX(1.0, result);
+    
     return ceilf(result);
 }
 
@@ -231,9 +233,7 @@
         
 //        NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
         NSArray *childrenElements = topElement.children;
-        NSRange rangeOfLink = NSMakeRange(-1, -1);
-        NSMutableAttributedString *attriOfLink;
-//        NSLog(@"rangerange: %li, %li", range.location, range.length);
+        NSMutableArray *arrOfLinkData = [[NSMutableArray alloc] init];
         for (int i = 0; i < childrenElements.count; i++) {
             TFHppleElement *element = [childrenElements objectAtIndex:i];
 //            NSLog(@"element: %@", element);
@@ -244,25 +244,25 @@
             } else if ([element.tagName isEqualToString:@"a"]) {
                 NSRange rangeOfA = [topElement.content rangeOfString:element.content];
                 if (rangeOfA.location != NSNotFound) {
-                    attriOfLink = [[NSMutableAttributedString alloc] initWithString:element.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"36428f"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
-                    rangeOfLink = rangeOfA;
+                    NSDictionary *dictOfLink = @{
+                                                 @"range":[NSValue valueWithRange:rangeOfA],
+                                                 @"content":element.content,
+                                                 @"attributes":element.attributes,
+                                                 };
+                    [arrOfLinkData addObject:dictOfLink];
                 }
             }
         }
         
         if ([topElement.tagName isEqualToString:@"p"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"303030") range:NSMakeRange(0, topElement.content.length)];
-            if (attriOfLink && rangeOfLink.location >= 0) {
-                [attri replaceCharactersInRange:rangeOfLink withAttributedString:attriOfLink];
-            }
-            [cell resetSubviewsWithAttributeString:attri];
+            
+            [cell resetSubviewsWithAttributeString:attri withLinkDataArr:arrOfLinkData];
             [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
         } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"606060") range:NSMakeRange(0, topElement.content.length)];
-            if (attriOfLink && rangeOfLink.location >= 0) {
-                [attri replaceCharactersInRange:rangeOfLink withAttributedString:attriOfLink];
-            }
-            [cell resetSubviewsWithAttributeString:attri];
+            
+            [cell resetSubviewsWithAttributeString:attri withLinkDataArr:arrOfLinkData];
             [cell resetTextInsets:UIEdgeInsetsMake(0, 20, 0, 10)];
             [cell showVerticalGrayLine];
         }
