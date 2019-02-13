@@ -79,7 +79,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelCellIdentifier" forIndexPath:indexPath];
     [cell resetSubviewsWithData:[self.dataArr objectAtIndex:indexPath.item]];
-    [cell showGrayLine:(indexPath.row != (self.dataArr.count - 1))];
     return cell;
 }
 

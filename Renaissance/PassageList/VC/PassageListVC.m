@@ -34,7 +34,7 @@
 - (void)initSubviews {
     self.imgvOfLogo = [[UIImageView alloc] init];
     self.imgvOfLogo.contentMode = UIViewContentModeScaleAspectFill;
-    self.imgvOfLogo.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
+    self.imgvOfLogo.backgroundColor = [UIColor colorWithHexString:@"f1f1f1"];
     self.imgvOfLogo.clipsToBounds = YES;
     self.imgvOfLogo.layer.cornerRadius = 3;
     [self addSubview:self.imgvOfLogo];
@@ -74,7 +74,7 @@
         PassageListTitleView *titleView = [[PassageListTitleView alloc] init];
         titleView.frame = CGRectMake(0, 0, ScreenW - 80, 45);
         [titleView setTitle:self.data.title];
-        [titleView setImageWithURL:self.data.logoUrl];
+        [titleView setImageWithURL:self.data.favoiconUrl];
         self.navigationItem.titleView = titleView;
     }
     return self;

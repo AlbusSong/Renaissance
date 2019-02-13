@@ -42,6 +42,7 @@
 		4EECE75E220BEF60004370BB /* ASView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE75D220BEF60004370BB /* ASView.m */; };
 		4EECE761220BEF79004370BB /* PassageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE760220BEF79004370BB /* PassageDetailView.m */; };
 		4EECE763220BF171004370BB /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EECE762220BF171004370BB /* libxml2.2.tbd */; };
+		4EFECAEB221314E400F8F67F /* HttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECAEA221314E400F8F67F /* HttpDigger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,8 @@
 		4EECE75F220BEF79004370BB /* PassageDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailView.h; sourceTree = "<group>"; };
 		4EECE760220BEF79004370BB /* PassageDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailView.m; sourceTree = "<group>"; };
 		4EECE762220BF171004370BB /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		4EFECAE9221314E400F8F67F /* HttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDigger.h; sourceTree = "<group>"; };
+		4EFECAEA221314E400F8F67F /* HttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpDigger.m; sourceTree = "<group>"; };
 		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
 		D6B1B4998383887A49F0145E /* libPods-Renaissance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Renaissance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -211,6 +214,7 @@
 		4EEB3D2B220A824B00D4DD91 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4EFECAE8221314D200F8F67F /* Network */,
 				4EECE751220BCE73004370BB /* ThirdParty */,
 				4E28F608220AFEE700C2730B /* Tool */,
 				4EEB3D52220A8D2000D4DD91 /* BaseView */,
@@ -398,6 +402,15 @@
 			path = Hpple;
 			sourceTree = "<group>";
 		};
+		4EFECAE8221314D200F8F67F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4EFECAE9221314E400F8F67F /* HttpDigger.h */,
+				4EFECAEA221314E400F8F67F /* HttpDigger.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		56C284A7FCE3BB8427B48713 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +549,7 @@
 				4EEB3D47220A8A3B00D4DD91 /* UIColor+Hex.m in Sources */,
 				4EEB3D71220AD42B00D4DD91 /* PassageListCell.m in Sources */,
 				4EEB3D51220A8C4C00D4DD91 /* UILabel+QuickLabel.m in Sources */,
+				4EFECAEB221314E400F8F67F /* HttpDigger.m in Sources */,
 				4EEB3D69220AC15B00D4DD91 /* UITextField+QuickTextField.m in Sources */,
 				4EEB3D55220A8D3B00D4DD91 /* ASTableView.m in Sources */,
 				4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */,

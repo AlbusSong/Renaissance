@@ -53,6 +53,7 @@
     if (grayLine == nil) {
         grayLine = [[UIView alloc] init];
         grayLine.backgroundColor = HexColor(@"dfdfdf");
+        grayLine.hidden = YES;
         [self.contentView addSubview:grayLine];
         grayLine.sd_layout.leftSpaceToView(self.contentView, 20).rightSpaceToView(self.contentView, 0).bottomEqualToView(self.contentView).heightIs(1);
     }
