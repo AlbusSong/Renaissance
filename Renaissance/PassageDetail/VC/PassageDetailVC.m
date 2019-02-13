@@ -142,27 +142,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat result = 0.0;
+    CGFloat result = 1.0;
+    CGSize sizeForFitting = CGSizeZero;
+    NSMutableAttributedString *attri;
     if (indexPath.section == 0) {
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         [paragraph setLineSpacing:10];
-        NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.title attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"202020"), NSFontAttributeName:[UIFont systemFontOfSize:24]}];
-        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 20, MAXFLOAT)];
-        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
-        result = textLayout.textBoundingSize.height;
+        attri = [[NSMutableAttributedString alloc] initWithString:self.data.title attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"202020"), NSFontAttributeName:[UIFont systemFontOfSize:24]}];
+        sizeForFitting = CGSizeMake(ScreenW - 20, MAXFLOAT);
     } else if (indexPath.section == 1) {
 //        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-        NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.author attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
-        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 20, MAXFLOAT)];
-        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
-        result = textLayout.textBoundingSize.height;
+        attri = [[NSMutableAttributedString alloc] initWithString:self.data.author attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
+        sizeForFitting = CGSizeMake(ScreenW - 20, MAXFLOAT);
     } else if (indexPath.section == 2) {
-        NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
-        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 20, MAXFLOAT)];
-        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
-        result = textLayout.textBoundingSize.height;
+        attri = [[NSMutableAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
+        sizeForFitting = CGSizeMake(ScreenW - 20, MAXFLOAT);
     } else if (indexPath.section == 3) {
-        result = 160;
+        return 160;
     } else {
         NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;
@@ -170,7 +166,7 @@
         
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         [paragraph setLineSpacing:8];
-        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+        attri = [[NSMutableAttributedString alloc] initWithString:topElement.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15]}];
         
         NSArray *childrenElements = topElement.children;
         for (int i = 0; i < childrenElements.count; i++) {
@@ -193,18 +189,16 @@
         }
         
         txtForSizeFitting.attributedText = attri;
-        CGSize sizeForFitting = CGSizeZero;
         if ([topElement.tagName isEqualToString:@"p"]) {
             sizeForFitting = CGSizeMake(ScreenW - 10*2, MAXFLOAT);
-            result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10*2, MAXFLOAT)].height;
         } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
             sizeForFitting = CGSizeMake(ScreenW - 10 - 20, MAXFLOAT);
-            result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10 - 20, MAXFLOAT)].height;
         }
-        YYTextContainer* container = [YYTextContainer containerWithSize:sizeForFitting];
-        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
-        result = textLayout.textBoundingSize.height;
     }
+    
+    YYTextContainer* container = [YYTextContainer containerWithSize:sizeForFitting];
+    YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
+    result = textLayout.textBoundingSize.height;
     
     return ceilf(result);
 }
