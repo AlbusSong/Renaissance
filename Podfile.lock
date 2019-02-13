@@ -14,7 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - CJLabel (4.6.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -32,35 +31,36 @@ PODS:
   - SDWebImage (4.4.5):
     - SDWebImage/Core (= 4.4.5)
   - SDWebImage/Core (4.4.5)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - AFNetworking
-  - CJLabel
   - FMDB
   - MJExtension
   - MWFeedParser
   - SDAutoLayout
   - SDWebImage
+  - YYText
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
-    - CJLabel
     - FMDB
     - MJExtension
     - MWFeedParser
     - SDAutoLayout
     - SDWebImage
+    - YYText
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  CJLabel: 8c790ae2ec143f9a77d8745898b99ea0b7cf7ac6
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 7d082e730c063fbf1f8db28e3c7b1061b82d05f9
+PODFILE CHECKSUM: 0c642247da678b46a9e09bf573cb7bf230647554
 
 COCOAPODS: 1.5.3

@@ -19,6 +19,7 @@
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
 #import <MWFeedParser.h>
+#import <YYText.h>
 
 // Model
 #import "Channel.h"

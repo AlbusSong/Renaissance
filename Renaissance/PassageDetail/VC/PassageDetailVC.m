@@ -147,17 +147,20 @@
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         [paragraph setLineSpacing:10];
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.title attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"202020"), NSFontAttributeName:[UIFont systemFontOfSize:24]}];
-        txtForSizeFitting.attributedText = attri;
-        result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
+        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 20, MAXFLOAT)];
+        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
+        result = textLayout.textBoundingSize.height;
     } else if (indexPath.section == 1) {
 //        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.author attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
-        txtForSizeFitting.attributedText = attri;
-        return [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
+        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 20, MAXFLOAT)];
+        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
+        result = textLayout.textBoundingSize.height;
     } else if (indexPath.section == 2) {
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
-        txtForSizeFitting.attributedText = attri;
-        result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 20, MAXFLOAT)].height;
+        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 20, MAXFLOAT)];
+        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
+        result = textLayout.textBoundingSize.height;
     } else if (indexPath.section == 3) {
         result = 160;
     } else {
@@ -190,13 +193,19 @@
         }
         
         txtForSizeFitting.attributedText = attri;
+        CGSize sizeForFitting = CGSizeZero;
         if ([topElement.tagName isEqualToString:@"p"]) {
+            sizeForFitting = CGSizeMake(ScreenW - 10*2, MAXFLOAT);
             result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10*2, MAXFLOAT)].height;
         } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
+            sizeForFitting = CGSizeMake(ScreenW - 10 - 20, MAXFLOAT);
             result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10 - 20, MAXFLOAT)].height;
         }
+        YYTextContainer* container = [YYTextContainer containerWithSize:sizeForFitting];
+        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
+        result = textLayout.textBoundingSize.height;
     }
-    result = MAX(1, result);
+    
     return ceilf(result);
 }
 
