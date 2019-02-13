@@ -217,7 +217,7 @@
         [cell resetSubviewsWithAttributeString:attri];
         [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     } else if (indexPath.section == 3) {
-        
+        [cell resetSubviewsWithImageUrl:self.data.coverUrl];
     } else {
         NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;
