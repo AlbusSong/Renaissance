@@ -196,6 +196,7 @@
             result = [txtForSizeFitting sizeThatFits:CGSizeMake(ScreenW - 10 - 20, MAXFLOAT)].height;
         }
     }
+    result = MAX(1, result);
     return ceilf(result);
 }
 

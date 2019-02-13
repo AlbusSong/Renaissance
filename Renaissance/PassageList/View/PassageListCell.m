@@ -11,7 +11,7 @@
 @implementation PassageListCell {
     UIImageView *imgv;
     UILabel *txtOfTitle;
-    UILabel *txtOfStatus;
+    UILabel *txtOfSubtitle;
     
     UIView *grayLine;
 }
@@ -45,18 +45,18 @@
     [imgv sd_setImageWithURL:[NSURL URLWithString:data.coverUrl]];
     
     
-    if (txtOfStatus == nil) {
-        txtOfStatus = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:13] textColor:HexColor(@"202020") parentView:self.contentView];
+    if (txtOfSubtitle == nil) {
+        txtOfSubtitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:13] textColor:HexColor(@"202020") parentView:self.contentView];
 //        txtOfStatus.backgroundColor = [UIColor purpleColor];
-        txtOfStatus.numberOfLines = 2;
-        txtOfStatus.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 0).heightIs(46);
+        txtOfSubtitle.numberOfLines = 2;
+        txtOfSubtitle.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 0).heightIs(46);
     }
-    txtOfStatus.text = [NSString stringWithFormat:@"5 Feb | %@", data.summary];
+    txtOfSubtitle.text = [NSString stringWithFormat:@"5 Feb | %@", data.summary];
     NSMutableParagraphStyle* paragraphOfStatus = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfStatus setLineSpacing:2];
-    NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:HexColor(@"202020"), NSParagraphStyleAttributeName:paragraphOfStatus}];
+    NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfSubtitle.text attributes:@{NSForegroundColorAttributeName:HexColor(@"202020"), NSParagraphStyleAttributeName:paragraphOfStatus}];
     [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"a0a0a0") range:NSMakeRange(0, [@"5 Feb |" length])];
-    txtOfStatus.attributedText = attrOfStatus;
+    txtOfSubtitle.attributedText = attrOfStatus;
     
     if (grayLine == nil) {
         grayLine = [[UIView alloc] init];
