@@ -24,7 +24,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -71,7 +71,7 @@
         NSAttributedString *attriOfUnderline = [[NSAttributedString alloc] initWithString:content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"36428f"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
         [mAttributeString replaceCharactersInRange:range withAttributedString:attriOfUnderline];
         
-        [mAttributeString yy_setTextHighlightRange:range color:HexColor(@"36428f") backgroundColor:[UIColor yellowColor] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        [mAttributeString yy_setTextHighlightRange:range color:HexColor(@"36428f") backgroundColor:[UIColor colorWithHexString:@"b0b0b0"] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
             NSLog(@"content: %@", content);
             NSLog(@"attributes: %@", attributes);
             if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(clickedLink:)]) {
