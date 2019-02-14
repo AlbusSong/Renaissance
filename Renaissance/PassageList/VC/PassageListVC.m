@@ -55,7 +55,7 @@
 
 @end
 
-@interface PassageListVC ()
+@interface PassageListVC () <ChannelServiceDelegate>
 
 @property (nonatomic, strong) Channel *data;
 
@@ -84,7 +84,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.arrOfData = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString];
+    [self refreshData];
     
     [self.tableView registerClass:[PassageListCell class] forCellReuseIdentifier:@"PassageListCellIdentifier"];
     self.tableView.refreshControl = [[UIRefreshControl alloc] init];
@@ -92,13 +92,32 @@
 //    [self.tableView.refreshControl endRefreshing];
 }
 
+- (void)refreshData {
+    self.arrOfData = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString];
+}
+
+#pragma mark ChannelServiceDelegate
+
+- (void)parsingChannelWithState:(ChannelParsingState)state {
+    NSLog(@"statestatestatestate: %i", state);
+    if (state == ChannelParsingStatePartialSuccess || state == ChannelParsingStateFailed) {
+        [self.tableView.refreshControl endRefreshing];
+        
+        if (state == ChannelParsingStatePartialSuccess) {
+            [self refreshData];
+            [self.tableView reloadData];
+        }
+    }
+}
+
 #pragma mark action
 
 - (void)refreshControlChanged:(UIRefreshControl *)sender {
     NSLog(@"sender: %@\n%li", sender, sender.isRefreshing);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [sender endRefreshing];
-    });
+    NSLog(@"hahaahah: %i", sender.state);
+    ChannelService *svc = [ChannelService sharedInstance];
+    svc.delegate = self;
+    [svc startToParseRSSChannel:self.data.url.absoluteString];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
