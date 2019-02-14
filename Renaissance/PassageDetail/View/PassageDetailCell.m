@@ -124,8 +124,7 @@
 
 #pragma mark getter
 
--(YYLabel*)txtOfContent
-{
+-(YYLabel*)txtOfContent {
     if (_txtOfContent == nil) {
         _txtOfContent = [[YYLabel alloc] initWithFrame:CGRectZero];
         _txtOfContent.textVerticalAlignment = YYTextVerticalAlignmentTop;

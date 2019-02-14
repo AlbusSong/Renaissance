@@ -13,11 +13,11 @@
 
 @property (nonatomic, copy) NSString *inputUrl;
 @property (nonatomic, strong) MWFeedParser *feedParser;
+@property (nonatomic, strong) YYLabel *txtOfHint;
 
 @end
 
 @implementation AddChannelVC {
-    UILabel *txtOfHint;
     UITextField *tfd;
 }
 
@@ -27,6 +27,12 @@
         self.title = @"Add a Channel";
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveChannel)];
+        
+        NSArray *examples = @[@"https://www.theamericanconservative.com/feed",
+                              @"http://www.naivix.com/joke/rss.xml",
+                              @"http://feed.quhuashuai.com",
+                              @"http://www.appinn.com/feed"];
+        [self.arrOfData addObjectsFromArray:examples];
     }
     return self;
 }
@@ -34,12 +40,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    NSLog(@"lalfaslfalsflas: %@", [GlobalTool md5String:@"asfjasldfsl"]);
-    txtOfHint = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"909090") parentView:nil];
-    txtOfHint.text = @"Input a url, then it will be automatically anylisized. For example: https://www.theamericanconservative.com/feed";
+    
+    [self setHintText];
     
     self.tableView.backgroundColor = self.view.backgroundColor;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"AddChannelCellIdentifier"];
+}
+
+- (void)setHintText {
+    NSString *hintText = @"Input a url, then it will be automatically anylisized. For example:\n";
+    for (NSString *urlStr in self.arrOfData) {
+        hintText = [hintText stringByAppendingFormat:@"%@\n", urlStr];
+    }
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    [paragraph setLineSpacing:4];
+    NSMutableAttributedString *mAttributeString = [[NSMutableAttributedString alloc] initWithString:hintText attributes:@{NSParagraphStyleAttributeName:paragraph, NSFontAttributeName:[UIFont systemFontOfSize:15], NSForegroundColorAttributeName:HexColor(@"909090")}];
+    for (NSString *urlStr in self.arrOfData) {
+        NSRange rangeOfLink = [hintText rangeOfString:urlStr];
+        if (rangeOfLink.location == NSNotFound) {
+            continue;
+        }
+        NSAttributedString *attriOfUnderline = [[NSAttributedString alloc] initWithString:urlStr attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"36428f"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [mAttributeString replaceCharactersInRange:rangeOfLink withAttributedString:attriOfUnderline];
+        [mAttributeString yy_setTextHighlightRange:rangeOfLink color:HexColor(@"36428f") backgroundColor:[UIColor colorWithHexString:@"b0b0b0"] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+            if (self->tfd) {
+                [self->tfd setText:urlStr];
+            }
+        }];
+    }
+    self.txtOfHint.attributedText = (NSAttributedString *)mAttributeString;
 }
 
 #pragma mark action
@@ -127,12 +156,15 @@
     if (indexPath.row == 0) {
         return 64;
     } else {
-        return [txtOfHint sizeThatFits:CGSizeMake(ScreenW - 10*2, MAXFLOAT)].height;
+        YYTextContainer* container = [YYTextContainer containerWithSize:CGSizeMake(ScreenW - 10*2, MAXFLOAT)];
+        YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:self.txtOfHint.attributedText];
+        return textLayout.textBoundingSize.height;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddChannelCellIdentifier" forIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.contentView removeAllSubviews];
     
@@ -147,17 +179,31 @@
         
         if (tfd == nil) {
             tfd = [UITextField quickTextFieldWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"404040") alignment:NSTextAlignmentLeft placeholder:@"https://" placeholderFont:[UIFont systemFontOfSize:15] placeholderColor:HexColor(@"909090")];
+            tfd.clearButtonMode = UITextFieldViewModeWhileEditing;
             [tfd addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         }
         [cell.contentView addSubview:tfd];
         tfd.sd_layout.leftSpaceToView(cell.contentView, 15).rightSpaceToView(cell.contentView, 15).topSpaceToView(cell.contentView, 10).bottomSpaceToView(cell.contentView, 10);
         
     } else {
-        [cell.contentView addSubview:txtOfHint];
-        txtOfHint.sd_layout.leftSpaceToView(cell.contentView, 10).rightSpaceToView(cell.contentView, 10).topSpaceToView(cell.contentView, 0).bottomSpaceToView(cell.contentView, 0);
+        [cell.contentView addSubview:self.txtOfHint];
+        self.txtOfHint.sd_layout.leftSpaceToView(cell.contentView, 10).rightSpaceToView(cell.contentView, 10).topSpaceToView(cell.contentView, 0).bottomSpaceToView(cell.contentView, 0);
     }
     
     return cell;
 }
+
+#pragma mark getter
+
+- (YYLabel *)txtOfHint {
+    if (_txtOfHint == nil) {
+        _txtOfHint = [[YYLabel alloc] initWithFrame:CGRectZero];
+        _txtOfHint.textVerticalAlignment = YYTextVerticalAlignmentTop;
+        _txtOfHint.displaysAsynchronously = YES;
+        _txtOfHint.numberOfLines = 0;
+    }
+    return _txtOfHint;
+}
+
 
 @end

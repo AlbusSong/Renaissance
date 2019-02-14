@@ -107,7 +107,7 @@
         TFHpple *hpple = [TFHpple hppleWithXMLData:[leftContent dataUsingEncoding:NSUTF8StringEncoding]];
         NSArray *arrOfElements = [hpple searchWithXPathQuery:[NSString stringWithFormat:@"//%@", [presentTag substringFromIndex:1]]];
         if (arrOfElements.count > 0) {
-            [self.dataArr addObject:arrOfElements];
+            [self.arrOfData addObject:arrOfElements];
         }
         NSLog(@"arrOfElements: %@", arrOfElements);
         NSLog(@"leftContent: %@", leftContent);
@@ -118,7 +118,7 @@
         [self.tableView reloadData];
     }
     
-    NSArray *arrOfElements = [self.dataArr firstObject];
+    NSArray *arrOfElements = [self.arrOfData firstObject];
     for (TFHppleElement *element in arrOfElements) {
 //        NSLog(@"element: %@", element.tagName);;
     }
@@ -131,7 +131,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3 + 1 + self.dataArr.count;
+    return 3 + 1 + self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -161,7 +161,7 @@
     } else if (indexPath.section == 3) {
         return 160;
     } else {
-        NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
+        NSArray *arrOfElements = [self.arrOfData objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;
         NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
         
@@ -228,7 +228,7 @@
     } else if (indexPath.section == 3) {
         [cell resetSubviewsWithImageUrl:self.data.coverUrl];
     } else {
-        NSArray *arrOfElements = [self.dataArr objectAtIndex:(indexPath.section - 4)];
+        NSArray *arrOfElements = [self.arrOfData objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;
         
         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];

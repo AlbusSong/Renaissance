@@ -75,11 +75,11 @@
 
 #pragma mark getter
 
-- (NSMutableArray *)dataArr {
-    if (_dataArr == nil) {
-        _dataArr = [[NSMutableArray alloc] init];
+- (NSMutableArray *)arrOfData {
+    if (_arrOfData == nil) {
+        _arrOfData = [[NSMutableArray alloc] init];
     }
-    return _dataArr;
+    return _arrOfData;
 }
 
 @end

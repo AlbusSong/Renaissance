@@ -45,7 +45,7 @@
 }
 
 - (void)refreshSelfData {
-    self.dataArr = [[DBTool sharedInstance] getAllAvailableChannels];
+    self.arrOfData = [[DBTool sharedInstance] getAllAvailableChannels];
 }
 
 #pragma mark action
@@ -66,7 +66,7 @@
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger count = self.dataArr.count;
+    NSInteger count = self.arrOfData.count;
     if (count > 0) {
         txtOfNoData.hidden = YES;
     } else {
@@ -89,14 +89,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelCellIdentifier" forIndexPath:indexPath];
-    [cell resetSubviewsWithData:[self.dataArr objectAtIndex:indexPath.item]];
+    [cell resetSubviewsWithData:[self.arrOfData objectAtIndex:indexPath.item]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.dataArr objectAtIndex:indexPath.item]];
+    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.arrOfData objectAtIndex:indexPath.item]];
     [self pushVC:vcOfPassageList];
 }
 

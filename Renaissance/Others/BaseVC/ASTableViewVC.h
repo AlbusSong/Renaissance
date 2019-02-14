@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ASTableViewVC : ASViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) ASTableView *tableView;
-@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) NSMutableArray *arrOfData;
 
 @end
 
