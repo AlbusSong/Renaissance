@@ -81,7 +81,10 @@
         [tfd resignFirstResponder];
     }
     
-    tfd.text = @"https://www.theamericanconservative.com/feed";
+    if (tfd.text.length == 0) {
+        return;
+    }
+    
     ChannelService *svc = [ChannelService sharedInstance];
     svc.delegate = self;
     [svc startToParseRSSChannel:tfd.text];
