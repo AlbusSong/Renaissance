@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AddChannelVC : ASTableViewVC
 
+@property (nonatomic, copy) void (^completionHandler) (BOOL success);
+
 @end
 
 NS_ASSUME_NONNULL_END

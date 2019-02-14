@@ -201,7 +201,9 @@
     YYTextLayout* textLayout = [YYTextLayout layoutWithContainer:container text:attri];
     result = textLayout.textBoundingSize.height;
     
-    result = MAX(1.0, result);
+    if (result < 0) {
+        result = UITableViewAutomaticDimension;
+    }
     
     return ceilf(result);
 }

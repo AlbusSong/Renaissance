@@ -9,7 +9,7 @@
 #import "AddChannelVC.h"
 #import "ChannelService.h"
 
-@interface AddChannelVC () <MWFeedParserDelegate>
+@interface AddChannelVC () <MWFeedParserDelegate, ChannelServiceDelegate>
 
 @property (nonatomic, copy) NSString *inputUrl;
 @property (nonatomic, strong) MWFeedParser *feedParser;
@@ -50,14 +50,9 @@
     }
     
     tfd.text = @"https://www.theamericanconservative.com/feed";
-    [[ChannelService sharedInstance] startToParseRSSChannel:tfd.text];
-//    self.inputUrl = tfd.text;
-//    self.feedParser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:self.inputUrl]];
-//    self.feedParser.delegate = self;
-//    self.feedParser.feedParseType = ParseTypeFull;
-//    self.feedParser.connectionType = ConnectionTypeAsynchronously;
-//    [self.feedParser parse];
-//    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    ChannelService *svc = [ChannelService sharedInstance];
+    svc.delegate = self;
+    [svc startToParseRSSChannel:tfd.text];
 }
 
 - (void)cancel {
@@ -66,6 +61,22 @@
     }
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark ChannelServiceDelegate
+
+- (void)parsingChannelWithState:(ChannelParsingState)state {
+    if (state == ChannelParsingStateFailed) {
+        NSLog(@"Failed");
+//        if (self.completionHandler) {
+//            self.completionHandler(NO);
+//        }
+    } else if (state == ChannelParsingStatePartialSuccess) {
+        if (self.completionHandler) {
+            self.completionHandler(YES);
+        }
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 //#pragma mark MWFeedParserDelegate

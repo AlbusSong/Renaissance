@@ -226,10 +226,15 @@ static ChannelService *instance = nil;
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
     NSLog(@"parser finish: %@", parser);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(parsingChannelWithState:)]) {
+        [self.delegate parsingChannelWithState:ChannelParsingStatePartialSuccess];
+    }
 }
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(parsingChannelWithState:)]) {
+        [self.delegate parsingChannelWithState:ChannelParsingStateFailed];
+    }
 }
 
 @end

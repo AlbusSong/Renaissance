@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.dataArr = [[DBTool sharedInstance] getAllAvailableChannels];
+    [self refreshSelfData];
     
     txtOfNoData = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:24] textColor:HexColor(@"B0B0B0") parentView:self.tableView];
     txtOfNoData.textAlignment = NSTextAlignmentCenter;
@@ -44,10 +44,21 @@
     [self.tableView registerClass:[ChannelCell class] forCellReuseIdentifier:@"ChannelCellIdentifier"];
 }
 
+- (void)refreshSelfData {
+    self.dataArr = [[DBTool sharedInstance] getAllAvailableChannels];
+}
+
 #pragma mark action
 
 - (void)addChannel {
     AddChannelVC *vcToAddChannel = [[AddChannelVC alloc] init];
+    WS(weakSelf)
+    vcToAddChannel.completionHandler = ^(BOOL success) {
+        if (success) {
+            [weakSelf refreshSelfData];
+            [weakSelf.tableView reloadData];
+        }
+    };
     ASNavigationController *nav = [[ASNavigationController alloc] initWithRootViewController:vcToAddChannel];
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }

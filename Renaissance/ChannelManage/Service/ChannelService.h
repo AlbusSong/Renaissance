@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, ChannelParsingState) {
     ChannelParsingStateStarted = 0,
     ChannelParsingStateOnTheWay,
-    ChannelParsingStateSuccess,
+    ChannelParsingStatePartialSuccess,
+    ChannelParsingStateTotalSuccess,
     ChannelParsingStateFailed,
 };
 
