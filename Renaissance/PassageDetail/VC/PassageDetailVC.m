@@ -222,7 +222,7 @@
         NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.author attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         [cell resetSubviewsWithAttributeString:attri];
     } else if (indexPath.section == 2) {
-        NSAttributedString *attri = [[NSAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
+        NSAttributedString *attri = [[NSAttributedString alloc] initWithString:[self.data.date timeStringByFormatter:@"EEE, d MMM yyyy"] attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         [cell resetSubviewsWithAttributeString:attri];
         [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     } else if (indexPath.section == 3) {

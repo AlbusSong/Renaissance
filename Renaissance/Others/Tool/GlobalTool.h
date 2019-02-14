@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GlobalTool : NSObject
 
++ (NSString *)timeStringBy:(NSInteger)unixTimeStamp formatter:(NSString *)formatterStr;
+
 + (NSString *)md5String:(NSString *)string;
 
 @end

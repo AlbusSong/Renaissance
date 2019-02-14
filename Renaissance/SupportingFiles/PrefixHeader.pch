@@ -46,6 +46,7 @@
 #import "UILabel+QuickLabel.h"
 #import "UIView+Candy.h"
 #import "UITextField+QuickTextField.h"
+#import "NSDate+Quick.h"
 
 // Macro
 #import "Macro.h"

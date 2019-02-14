@@ -99,7 +99,6 @@
 #pragma mark ChannelServiceDelegate
 
 - (void)parsingChannelWithState:(ChannelParsingState)state {
-    NSLog(@"statestatestatestate: %i", state);
     if (state == ChannelParsingStatePartialSuccess || state == ChannelParsingStateFailed) {
         [self.tableView.refreshControl endRefreshing];
         

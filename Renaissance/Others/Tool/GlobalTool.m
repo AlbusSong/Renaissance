@@ -11,6 +11,25 @@
 
 @implementation GlobalTool
 
++ (NSString *)timeStringBy:(NSInteger)unixTimeStamp formatter:(NSString *)formatterStr {
+    NSInteger digitsOfIt = [GlobalTool getDigitsOfAnInteger:unixTimeStamp];
+    if (digitsOfIt > 10) {
+        NSInteger delta = digitsOfIt - 10;
+        unixTimeStamp = unixTimeStamp/((NSInteger)(pow(10.0, delta)));
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:formatterStr];
+//    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:unixTimeStamp];
+    
+    return [formatter stringFromDate:date];
+}
+
++ (NSInteger)getDigitsOfAnInteger:(NSInteger)integer {
+    return integer <= 0 ? 0 : 1 + [GlobalTool getDigitsOfAnInteger:integer/10];
+}
+
 + (NSString *)md5String:(NSString *)string {
     const char *cStr = [string UTF8String];
     unsigned char result[16];

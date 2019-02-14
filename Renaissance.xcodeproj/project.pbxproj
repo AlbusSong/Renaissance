@@ -16,6 +16,7 @@
 		4EA7FE2D220C2F5B00C96287 /* PassageDetailLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7FE2C220C2F5B00C96287 /* PassageDetailLabel.m */; };
 		4EA7FE31220C30EB00C96287 /* PassageDetailTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7FE30220C30EB00C96287 /* PassageDetailTextStorage.m */; };
 		4EA7FE34220C470300C96287 /* PassageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7FE33220C470300C96287 /* PassageDetailCell.m */; };
+		4EBACEE72215595100918ABF /* NSDate+Quick.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBACEE62215595100918ABF /* NSDate+Quick.m */; };
 		4EEB3D17220A810200D4DD91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB3D16220A810200D4DD91 /* AppDelegate.m */; };
 		4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D1E220A810300D4DD91 /* Assets.xcassets */; };
 		4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB3D20220A810300D4DD91 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,8 @@
 		4EA7FE30220C30EB00C96287 /* PassageDetailTextStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailTextStorage.m; sourceTree = "<group>"; };
 		4EA7FE32220C470300C96287 /* PassageDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailCell.h; sourceTree = "<group>"; };
 		4EA7FE33220C470300C96287 /* PassageDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailCell.m; sourceTree = "<group>"; };
+		4EBACEE52215595100918ABF /* NSDate+Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Quick.h"; sourceTree = "<group>"; };
+		4EBACEE62215595100918ABF /* NSDate+Quick.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Quick.m"; sourceTree = "<group>"; };
 		4EEB3D12220A810200D4DD91 /* Renaissance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renaissance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEB3D15220A810200D4DD91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EEB3D16220A810200D4DD91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -307,6 +310,8 @@
 				4EEB3D65220ABFC300D4DD91 /* UIView+Candy.m */,
 				4EEB3D67220AC15B00D4DD91 /* UITextField+QuickTextField.h */,
 				4EEB3D68220AC15B00D4DD91 /* UITextField+QuickTextField.m */,
+				4EBACEE52215595100918ABF /* NSDate+Quick.h */,
+				4EBACEE62215595100918ABF /* NSDate+Quick.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				4EECE75E220BEF60004370BB /* ASView.m in Sources */,
 				4EA7FE31220C30EB00C96287 /* PassageDetailTextStorage.m in Sources */,
 				4EECE75A220BCEB3004370BB /* TFHpple.m in Sources */,
+				4EBACEE72215595100918ABF /* NSDate+Quick.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
 				4EECE759220BCEB3004370BB /* TFHppleElement.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,

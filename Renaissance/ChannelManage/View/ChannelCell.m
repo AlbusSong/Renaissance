@@ -45,7 +45,7 @@
         txtOfStatus.numberOfLines = 1;
         txtOfStatus.sd_layout.leftSpaceToView(imgv, 10).rightSpaceToView(self.contentView, 0).bottomEqualToView(imgv).heightIs(14);
     }
-    txtOfStatus.text = @"2 unread | 5 Feb 2019 latest";
+    txtOfStatus.text = @"2 unread | Feb 2";
     NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:HexColor(@"2e2e2e2")}];
     [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"A62A2A") range:NSMakeRange(0, [@"2 unread |" length])];
     txtOfStatus.attributedText = attrOfStatus;

@@ -51,7 +51,7 @@
         txtOfSubtitle.numberOfLines = 2;
         txtOfSubtitle.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 0).heightIs(46);
     }
-    txtOfSubtitle.text = [NSString stringWithFormat:@"5 Feb | %@", data.summary];
+    txtOfSubtitle.text = [NSString stringWithFormat:@"%@ | %@", [data.date timeStringByFormatter:@"d MMM"], data.summary];
     NSMutableParagraphStyle* paragraphOfStatus = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfStatus setLineSpacing:2];
     NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfSubtitle.text attributes:@{NSForegroundColorAttributeName:HexColor(@"202020"), NSParagraphStyleAttributeName:paragraphOfStatus}];
