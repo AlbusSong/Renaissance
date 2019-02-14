@@ -62,9 +62,12 @@
         }
         NSAttributedString *attriOfUnderline = [[NSAttributedString alloc] initWithString:urlStr attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"36428f"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
         [mAttributeString replaceCharactersInRange:rangeOfLink withAttributedString:attriOfUnderline];
-        [mAttributeString yy_setTextHighlightRange:rangeOfLink color:HexColor(@"36428f") backgroundColor:[UIColor colorWithHexString:@"b0b0b0"] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        [mAttributeString yy_setTextHighlightRange:rangeOfLink color:HexColor(@"909090") backgroundColor:[UIColor colorWithHexString:@"b0b0b0"] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
             if (self->tfd) {
                 [self->tfd setText:urlStr];
+                if (!self->tfd.isFirstResponder) {
+                    [self->tfd becomeFirstResponder];
+                }
             }
         }];
     }
