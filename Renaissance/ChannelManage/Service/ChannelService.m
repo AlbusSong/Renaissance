@@ -129,6 +129,10 @@ static ChannelService *instance = nil;
         faviconUrl = logoUrl;
     }
     [[DBTool sharedInstance] updateLogoUrl:logoUrl favoiconUrl:faviconUrl ofChannelUrl:self.rssChannelUrl];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(parsingChannelWithState:)]) {
+        [self.delegate parsingChannelWithState:ChannelParsingStateTotalSuccess];
+    }
 }
 
 - (void)extractCoverPictureOf:(NSString *)link identifierMd5Value:(NSString *)identifierMd5Value {

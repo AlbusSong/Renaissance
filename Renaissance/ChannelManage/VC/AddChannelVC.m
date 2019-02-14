@@ -7,7 +7,6 @@
 //
 
 #import "AddChannelVC.h"
-#import "ChannelService.h"
 
 @interface AddChannelVC () <MWFeedParserDelegate, ChannelServiceDelegate>
 
@@ -93,7 +92,7 @@
 - (void)cancel {
     if (tfd.isFirstResponder) {
         [tfd resignFirstResponder];
-    }
+    }    
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }

@@ -32,6 +32,9 @@
 #import "DBTool.h"
 #import "GlobalTool.h"
 
+// Service
+#import "ChannelService.h"
+
 // Base ViewController
 #import "ASNavigationController.h"
 #import "ASViewController.h"

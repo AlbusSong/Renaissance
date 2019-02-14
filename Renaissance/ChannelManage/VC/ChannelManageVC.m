@@ -11,7 +11,7 @@
 #import "PassageListVC.h"
 #import "ChannelCell.h"
 
-@interface ChannelManageVC ()
+@interface ChannelManageVC () <ChannelServiceDelegate>
 
 @end
 
@@ -55,12 +55,24 @@
     WS(weakSelf)
     vcToAddChannel.completionHandler = ^(BOOL success) {
         if (success) {
+            [ChannelService sharedInstance].delegate = self;
             [weakSelf refreshSelfData];
             [weakSelf.tableView reloadData];
         }
     };
     ASNavigationController *nav = [[ASNavigationController alloc] initWithRootViewController:vcToAddChannel];
     [self.navigationController presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark ChannelServic®eDelegate
+
+- (void)parsingChannelWithState:(ChannelParsingState)state {
+    if (state == ChannelParsingStateTotalSuccess) {
+        [self refreshSelfData];
+        [self.tableView reloadData];
+        
+        [ChannelService sharedInstance].delegate = nil;
+    }
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
