@@ -176,9 +176,14 @@
             if ([element.tagName isEqualToString:@"img"]) {
                 NSDictionary *theAttributes = element.attributes;
 //                NSLog(@"^^^^^^^^^^^^^^^^^: %@", theAttributes);
-                CGFloat widthOfImg = [theAttributes[@"width"] floatValue];
-                CGFloat heightOfImg = [theAttributes[@"height"] floatValue];
-                return heightOfImg * (ScreenW - 20) / widthOfImg;
+                if (theAttributes[@"width"] && theAttributes[@"height"]) {
+                    CGFloat widthOfImg = [theAttributes[@"width"] floatValue];
+                    CGFloat heightOfImg = [theAttributes[@"height"] floatValue];
+                    result = heightOfImg * (ScreenW - 20) / widthOfImg;
+                    return MAX(result, 0.0);
+                } else {
+                    return 0;
+                }
             } else if ([element.tagName isEqualToString:@"a"]) {
                 NSLog(@"#############: %@", element);
                 NSRange rangeOfA = [topElement.content rangeOfString:element.content];
@@ -202,7 +207,7 @@
     result = textLayout.textBoundingSize.height;
     
     if (result < 0) {
-        result = UITableViewAutomaticDimension;
+        result = 1;
     }
     
     return ceilf(result);
