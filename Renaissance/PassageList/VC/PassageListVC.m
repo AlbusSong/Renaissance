@@ -9,6 +9,7 @@
 #import "PassageListVC.h"
 #import "PassageDetailVC.h"
 #import "PassageListCell.h"
+#import "LoadMoreFooterView.h"
 
 @interface PassageListTitleView : UIView
 
@@ -61,7 +62,9 @@
 
 @end
 
-@implementation PassageListVC
+@implementation PassageListVC {
+    LoadMoreFooterView *viewToLoadMore;
+}
 
 - (instancetype)initWithChannelData:(Channel *)data {
     self = [super init];
@@ -130,6 +133,18 @@
     } else {
         return 160;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (viewToLoadMore == nil) {
+        viewToLoadMore = [[LoadMoreFooterView alloc] init];
+    }
+    
+    return viewToLoadMore;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
