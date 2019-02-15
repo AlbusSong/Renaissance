@@ -55,17 +55,6 @@
 }
 
 - (void)parseData {
-//    NSLog(@"firstNode: %@", self.data.link);
-//    NSString *testStr = @" <blockquote> <p>Trump and other Republicans are using divisions over late-term abortion to their political advantage. They have seized on the Democratic legislation to argue that Democrats are extreme and out of touch with American public opinion on this issue. Trump’s comments on abortion in the State of the Union received loud applause from Republican members of Congress. Ultimately, this may signal how the party will approach abortion in the long windup to the 2020 election: by using extreme cases as a powerful wedge issue.</p></blockquote>";
-//    TFHpple *hpple = [TFHpple hppleWithXMLData:[testStr dataUsingEncoding:NSUTF8StringEncoding]];
-//    NSArray *arrOfElmOfP = [hpple searchWithXPathQuery:@"//blockquote"];
-//    TFHppleElement *elmOfP = arrOfElmOfP.firstObject;
-//    NSLog(@"the arrOfElmOfP: %@", arrOfElmOfP);
-//    for (TFHppleElement *child in elmOfP.children) {
-//        NSLog(@"the child: %@", child);
-//    }
-//    return;
-    
     NSArray *tags = @[@"<p", @"<blockquote"];
     NSArray *closeTags = @[@"/p>", @"/blockquote>"];
     NSInteger index = 0;
@@ -116,11 +105,6 @@
     
     if ([self.tableView numberOfSections] == 4) {
         [self.tableView reloadData];
-    }
-    
-    NSArray *arrOfElements = [self.arrOfData firstObject];
-    for (TFHppleElement *element in arrOfElements) {
-//        NSLog(@"element: %@", element.tagName);;
     }
 }
 
