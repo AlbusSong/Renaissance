@@ -21,9 +21,6 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     CGFloat widthOfTitle = (ScreenW - 10*3)*216/(216 + 137);
-    if ([data.title containsString:@"Freedom"]) {
-        NSLog(@"coverurlcoverurlcoverurl: %@\n%i", data.coverUrl, data.isCoverUrlValid);
-    }
     if (!data.isCoverUrlValid) {
         widthOfTitle = ScreenW - 20;
     }
