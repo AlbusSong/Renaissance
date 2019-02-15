@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSInteger createTime;
 
+@property (nonatomic, readonly) BOOL isCoverUrlValid;
+
 @end
 
 NS_ASSUME_NONNULL_END

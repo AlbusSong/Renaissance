@@ -159,7 +159,11 @@
         attri = [[NSMutableAttributedString alloc] initWithString:self.data.date.description attributes:@{NSForegroundColorAttributeName:HexColor(@"909090"), NSFontAttributeName:[UIFont systemFontOfSize:10]}];
         sizeForFitting = CGSizeMake(ScreenW - 20, MAXFLOAT);
     } else if (indexPath.section == 3) {
-        return 160;
+        if (self.data.isCoverUrlValid) {
+            return 160;
+        } else {
+            return 0.0;
+        }
     } else {
         NSArray *arrOfElements = [self.arrOfData objectAtIndex:(indexPath.section - 4)];
         TFHppleElement *topElement = arrOfElements.firstObject;

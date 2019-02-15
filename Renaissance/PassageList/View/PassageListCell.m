@@ -21,6 +21,9 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     CGFloat widthOfTitle = (ScreenW - 10*3)*216/(216 + 137);
+    if (!data.isCoverUrlValid) {
+        widthOfTitle = ScreenW - 20;
+    }
     if (txtOfTitle == nil) {
         txtOfTitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"404040") parentView:self.contentView];
 //        txtOfTitle.backgroundColor = [UIColor yellowColor];
@@ -42,7 +45,14 @@
         [self.contentView addSubview:imgv];
         imgv.sd_layout.leftSpaceToView(txtOfTitle, 10).rightSpaceToView(self.contentView, 10).topEqualToView(txtOfTitle).heightIs(92);
     }
-    [imgv sd_setImageWithURL:[NSURL URLWithString:data.coverUrl]];
+    if (data.isCoverUrlValid) {
+        txtOfTitle.numberOfLines = 3;
+        imgv.hidden = NO;
+        [imgv sd_setImageWithURL:[NSURL URLWithString:data.coverUrl]];
+    } else {
+        txtOfTitle.numberOfLines = 2;
+        imgv.hidden = YES;
+    }
     
     
     if (txtOfSubtitle == nil) {

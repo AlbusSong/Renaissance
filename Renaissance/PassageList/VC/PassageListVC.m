@@ -112,8 +112,6 @@
 #pragma mark action
 
 - (void)refreshControlChanged:(UIRefreshControl *)sender {
-    NSLog(@"sender: %@\n%li", sender, sender.isRefreshing);
-    NSLog(@"hahaahah: %i", sender.state);
     ChannelService *svc = [ChannelService sharedInstance];
     svc.delegate = self;
     [svc startToParseRSSChannel:self.data.url.absoluteString];
@@ -126,7 +124,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 160;
+    ChannelItem *data = [self.arrOfData objectAtIndex:indexPath.row];
+    if (!data.isCoverUrlValid) {
+        return 117;
+    } else {
+        return 160;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

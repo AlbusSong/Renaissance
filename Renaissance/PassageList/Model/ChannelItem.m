@@ -10,4 +10,14 @@
 
 @implementation ChannelItem
 
+- (BOOL)isCoverUrlValid {
+    if (self.coverUrl.length > 0) {
+        if ([self.coverUrl hasPrefix:@"http"] || [self.coverUrl hasPrefix:@"ftp"]) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 @end
