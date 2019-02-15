@@ -46,6 +46,8 @@
 		4EF34AA8221704D6007B3D45 /* HudTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF34AA7221704D6007B3D45 /* HudTool.m */; };
 		4EF34AAB22170761007B3D45 /* ASNavigationController+SVProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF34AAA22170761007B3D45 /* ASNavigationController+SVProgressHud.m */; };
 		4EF34AAE22170F94007B3D45 /* LoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF34AAD22170F94007B3D45 /* LoadMoreFooterView.m */; };
+		4EF34AB3221713BB007B3D45 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EF34AB1221713BB007B3D45 /* logo@2x.png */; };
+		4EF34AB4221713BB007B3D45 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EF34AB2221713BB007B3D45 /* logo@3x.png */; };
 		4EFECAEB221314E400F8F67F /* HttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECAEA221314E400F8F67F /* HttpDigger.m */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +129,8 @@
 		4EF34AAA22170761007B3D45 /* ASNavigationController+SVProgressHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ASNavigationController+SVProgressHud.m"; sourceTree = "<group>"; };
 		4EF34AAC22170F94007B3D45 /* LoadMoreFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadMoreFooterView.h; sourceTree = "<group>"; };
 		4EF34AAD22170F94007B3D45 /* LoadMoreFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadMoreFooterView.m; sourceTree = "<group>"; };
+		4EF34AB1221713BB007B3D45 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		4EF34AB2221713BB007B3D45 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		4EFECAE9221314E400F8F67F /* HttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDigger.h; sourceTree = "<group>"; };
 		4EFECAEA221314E400F8F67F /* HttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpDigger.m; sourceTree = "<group>"; };
 		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 		4EEB3D2B220A824B00D4DD91 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4EF34AAF22171336007B3D45 /* Resource */,
 				4EFECAE8221314D200F8F67F /* Network */,
 				4EECE751220BCE73004370BB /* ThirdParty */,
 				4E28F608220AFEE700C2730B /* Tool */,
@@ -422,6 +427,23 @@
 			path = Hpple;
 			sourceTree = "<group>";
 		};
+		4EF34AAF22171336007B3D45 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4EF34AB022171343007B3D45 /* Images */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		4EF34AB022171343007B3D45 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4EF34AB1221713BB007B3D45 /* logo@2x.png */,
+				4EF34AB2221713BB007B3D45 /* logo@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		4EFECAE8221314D200F8F67F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +531,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EEB3D22220A810300D4DD91 /* LaunchScreen.storyboard in Resources */,
+				4EF34AB3221713BB007B3D45 /* logo@2x.png in Resources */,
+				4EF34AB4221713BB007B3D45 /* logo@3x.png in Resources */,
 				4EEB3D1F220A810300D4DD91 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
