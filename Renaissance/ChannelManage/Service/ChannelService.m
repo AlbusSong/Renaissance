@@ -197,7 +197,10 @@ static ChannelService *instance = nil;
 
 - (void)feedParserDidStart:(MWFeedParser *)parser {
     if (self.delegate && [self.delegate respondsToSelector:@selector(parsingChannelWithState:)]) {
-        [self.delegate parsingChannelWithState:ChannelParsingStateStarted];
+        WS(weakSelf)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.delegate parsingChannelWithState:ChannelParsingStateStarted];
+        });
     }
 }
 
@@ -211,7 +214,10 @@ static ChannelService *instance = nil;
     [self.imageExtractionQueue addOperation:op];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(parsingChannelWithState:)]) {
-        [self.delegate parsingChannelWithState:ChannelParsingStateOnTheWay];
+        WS(weakSelf)
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [weakSelf.delegate parsingChannelWithState:ChannelParsingStateOnTheWay];
+        });
     }
 }
 
@@ -237,7 +243,10 @@ static ChannelService *instance = nil;
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
     if (self.delegate && [self.delegate respondsToSelector:@selector(parsingChannelWithState:)]) {
-        [self.delegate parsingChannelWithState:ChannelParsingStateFailed];
+        WS(weakSelf)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.delegate parsingChannelWithState:ChannelParsingStateFailed];
+        });
     }
 }
 

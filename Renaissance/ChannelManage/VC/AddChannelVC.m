@@ -76,14 +76,16 @@
 #pragma mark action
 
 - (void)saveChannel {
+    if (tfd.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"Input a valid url"];
+        return;
+    }
+    
     if (tfd.isFirstResponder) {
         [tfd resignFirstResponder];
     }
     
-    if (tfd.text.length == 0) {
-        return;
-    }
-    
+    [SVProgressHUD showWithStatus:@"Parsing"];
     ChannelService *svc = [ChannelService sharedInstance];
     svc.delegate = self;
     [svc startToParseRSSChannel:tfd.text];
@@ -102,14 +104,17 @@
 - (void)parsingChannelWithState:(ChannelParsingState)state {
     if (state == ChannelParsingStateFailed) {
         NSLog(@"Failed");
+        [SVProgressHUD showInfoWithStatus:@"Failed to Parss"];
 //        if (self.completionHandler) {
 //            self.completionHandler(NO);
 //        }
     } else if (state == ChannelParsingStatePartialSuccess) {
+        [SVProgressHUD showInfoWithStatus:@"Parsed"];
         if (self.completionHandler) {
             self.completionHandler(YES);
         }
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } else if (state == ChannelParsingStateStarted) {
     }
 }
 

@@ -20,6 +20,7 @@
 #import <MJExtension.h>
 #import <MWFeedParser.h>
 #import <YYText.h>
+#import <SVProgressHUD.h>
 
 // Model
 #import "Channel.h"
@@ -31,6 +32,7 @@
 // Tool
 #import "DBTool.h"
 #import "GlobalTool.h"
+#import "HudTool.h"
 
 // Service
 #import "ChannelService.h"

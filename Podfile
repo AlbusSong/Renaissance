@@ -13,6 +13,7 @@ target 'Renaissance' do
   pod 'FMDB'
   pod 'MWFeedParser'
   pod 'YYText'
+  pod 'SVProgressHUD'
 #  pod 'Neat'
 #  pod 'IGHTMLQuery'
 #  pod 'CJLabel'

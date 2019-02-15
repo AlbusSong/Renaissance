@@ -126,7 +126,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelItem *data = [self.arrOfData objectAtIndex:indexPath.row];
     if (!data.isCoverUrlValid) {
-        return 117;
+        return 127;
     } else {
         return 160;
     }

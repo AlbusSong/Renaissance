@@ -43,6 +43,8 @@
 		4EECE75E220BEF60004370BB /* ASView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE75D220BEF60004370BB /* ASView.m */; };
 		4EECE761220BEF79004370BB /* PassageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECE760220BEF79004370BB /* PassageDetailView.m */; };
 		4EECE763220BF171004370BB /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EECE762220BF171004370BB /* libxml2.2.tbd */; };
+		4EF34AA8221704D6007B3D45 /* HudTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF34AA7221704D6007B3D45 /* HudTool.m */; };
+		4EF34AAB22170761007B3D45 /* ASNavigationController+SVProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF34AAA22170761007B3D45 /* ASNavigationController+SVProgressHud.m */; };
 		4EFECAEB221314E400F8F67F /* HttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECAEA221314E400F8F67F /* HttpDigger.m */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,10 @@
 		4EECE75F220BEF79004370BB /* PassageDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailView.h; sourceTree = "<group>"; };
 		4EECE760220BEF79004370BB /* PassageDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailView.m; sourceTree = "<group>"; };
 		4EECE762220BF171004370BB /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		4EF34AA6221704D6007B3D45 /* HudTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HudTool.h; sourceTree = "<group>"; };
+		4EF34AA7221704D6007B3D45 /* HudTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HudTool.m; sourceTree = "<group>"; };
+		4EF34AA922170761007B3D45 /* ASNavigationController+SVProgressHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASNavigationController+SVProgressHud.h"; sourceTree = "<group>"; };
+		4EF34AAA22170761007B3D45 /* ASNavigationController+SVProgressHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ASNavigationController+SVProgressHud.m"; sourceTree = "<group>"; };
 		4EFECAE9221314E400F8F67F /* HttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDigger.h; sourceTree = "<group>"; };
 		4EFECAEA221314E400F8F67F /* HttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpDigger.m; sourceTree = "<group>"; };
 		7A4097C827020DA691AEC7B1 /* Pods-Renaissance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renaissance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Renaissance/Pods-Renaissance.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 				4E28F60A220AFEFB00C2730B /* GlobalTool.m */,
 				4E28F60C220AFF0500C2730B /* DBTool.h */,
 				4E28F60D220AFF0500C2730B /* DBTool.m */,
+				4EF34AA6221704D6007B3D45 /* HudTool.h */,
+				4EF34AA7221704D6007B3D45 /* HudTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -312,6 +320,8 @@
 				4EEB3D68220AC15B00D4DD91 /* UITextField+QuickTextField.m */,
 				4EBACEE52215595100918ABF /* NSDate+Quick.h */,
 				4EBACEE62215595100918ABF /* NSDate+Quick.m */,
+				4EF34AA922170761007B3D45 /* ASNavigationController+SVProgressHud.h */,
+				4EF34AAA22170761007B3D45 /* ASNavigationController+SVProgressHud.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -445,6 +455,7 @@
 				4EEB3D0E220A810200D4DD91 /* Sources */,
 				4EEB3D0F220A810200D4DD91 /* Frameworks */,
 				4EEB3D10220A810200D4DD91 /* Resources */,
+				ABD183F71B46310D9F132BB8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -500,6 +511,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		ABD183F71B46310D9F132BB8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Renaissance/Pods-Renaissance-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Renaissance/Pods-Renaissance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B8472876C89AF098B9DDE72C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,6 +566,7 @@
 				4E28F614220B0B7800C2730B /* Channel.m in Sources */,
 				4EA7FE2D220C2F5B00C96287 /* PassageDetailLabel.m in Sources */,
 				4EECE75B220BCEB3004370BB /* XPathQuery.m in Sources */,
+				4EF34AAB22170761007B3D45 /* ASNavigationController+SVProgressHud.m in Sources */,
 				4EEB3D61220A98D600D4DD91 /* AddChannelVC.m in Sources */,
 				4EEB3D58220A8F8C00D4DD91 /* ASTableViewCell.m in Sources */,
 				4EEB3D66220ABFC300D4DD91 /* UIView+Candy.m in Sources */,
@@ -546,6 +580,7 @@
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,
 				4EECE759220BCEB3004370BB /* TFHppleElement.m in Sources */,
 				4EEB3D40220A842200D4DD91 /* ChannelManageVC.m in Sources */,
+				4EF34AA8221704D6007B3D45 /* HudTool.m in Sources */,
 				4EECE761220BEF79004370BB /* PassageDetailView.m in Sources */,
 				4EEB3D25220A810300D4DD91 /* main.m in Sources */,
 				4EEB3D4A220A8A8100D4DD91 /* UIImage+Tool.m in Sources */,

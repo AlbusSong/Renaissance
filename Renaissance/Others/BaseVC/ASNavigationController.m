@@ -7,6 +7,7 @@
 //
 
 #import "ASNavigationController.h"
+#import "ASNavigationController+SVProgressHud.h"
 
 @interface ASNavigationController ()
 
@@ -22,6 +23,8 @@
     
 //    [self customNavigationBar];
     self.navigationBar.tintColor = HexColor(@"404040");
+    
+    [self setSVProgressHudStyle];
 }
 
 - (void)customNavigationBar{

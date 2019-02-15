@@ -59,7 +59,7 @@
         txtOfSubtitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:13] textColor:HexColor(@"202020") parentView:self.contentView];
 //        txtOfStatus.backgroundColor = [UIColor purpleColor];
         txtOfSubtitle.numberOfLines = 2;
-        txtOfSubtitle.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 0).heightIs(46);
+        txtOfSubtitle.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 5).heightIs(46);
     }
     txtOfSubtitle.text = [NSString stringWithFormat:@"%@ | %@", [data.date timeStringByFormatter:@"d MMM"], data.summary];
     NSMutableParagraphStyle* paragraphOfStatus = [[NSMutableParagraphStyle alloc] init];
