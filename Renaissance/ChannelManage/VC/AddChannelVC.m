@@ -28,9 +28,9 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveChannel)];
         
         NSArray *examples = @[@"https://www.theamericanconservative.com/feed",
-                              @"http://www.naivix.com/joke/rss.xml",
-                              @"http://feed.quhuashuai.com",
-                              @"http://www.appinn.com/feed"];
+                              @"http://feeds.bbci.co.uk/news/world/rss.xml",
+                              @"http://feeds.foxnews.com/foxnews/scitech",
+                              ];
         [self.arrOfData addObjectsFromArray:examples];
     }
     return self;

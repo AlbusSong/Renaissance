@@ -105,7 +105,7 @@
         _verticalGrayLine = [[UIView alloc] init];
         _verticalGrayLine.backgroundColor = HexColor(@"979797");
         [self.contentView addSubview:_verticalGrayLine];
-        _verticalGrayLine.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 0).bottomSpaceToView(self.contentView, 0).widthIs(1);
+        _verticalGrayLine.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 3).bottomSpaceToView(self.contentView, 3).widthIs(1);
     }
     return _verticalGrayLine;
 }

@@ -101,14 +101,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelCellIdentifier" forIndexPath:indexPath];
-    [cell resetSubviewsWithData:[self.arrOfData objectAtIndex:indexPath.item]];
+    [cell resetSubviewsWithData:[self.arrOfData objectAtIndex:indexPath.section]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.arrOfData objectAtIndex:indexPath.item]];
+    PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.arrOfData objectAtIndex:indexPath.section]];
     [self pushVC:vcOfPassageList];
 }
 
