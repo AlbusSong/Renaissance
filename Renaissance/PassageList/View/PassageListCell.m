@@ -21,6 +21,9 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     CGFloat widthOfTitle = (ScreenW - 10*3)*216/(216 + 137);
+    if ([data.title containsString:@"Freedom"]) {
+        NSLog(@"coverurlcoverurlcoverurl: %@\n%i", data.coverUrl, data.isCoverUrlValid);
+    }
     if (!data.isCoverUrlValid) {
         widthOfTitle = ScreenW - 20;
     }
@@ -28,14 +31,14 @@
         txtOfTitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"404040") parentView:self.contentView];
 //        txtOfTitle.backgroundColor = [UIColor yellowColor];
         txtOfTitle.numberOfLines = 3;
-        txtOfTitle.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 10).widthIs(widthOfTitle);
+        txtOfTitle.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 10);
     }
     txtOfTitle.text = data.title;
     NSMutableParagraphStyle* paragraphOfTitle = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfTitle setLineSpacing:10];
     NSAttributedString *attrOfTitle = [[NSAttributedString alloc] initWithString:txtOfTitle.text attributes:@{NSParagraphStyleAttributeName:paragraphOfTitle}];
     txtOfTitle.attributedText = attrOfTitle;
-    txtOfTitle.sd_layout.heightIs([txtOfTitle sizeThatFits:CGSizeMake(widthOfTitle, MAXFLOAT)].height);
+    txtOfTitle.sd_layout.widthIs(widthOfTitle).heightIs([txtOfTitle sizeThatFits:CGSizeMake(widthOfTitle, MAXFLOAT)].height);
     
     if (imgv == nil) {
         imgv = [[UIImageView alloc] init];
