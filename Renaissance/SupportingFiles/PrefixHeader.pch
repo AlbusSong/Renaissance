@@ -49,6 +49,7 @@
 #import "UIView+Candy.h"
 #import "UITextField+QuickTextField.h"
 #import "NSDate+Quick.h"
+#import "UIView+ActivityIndicatorView.h"
 
 // Macro
 #import "Macro.h"

@@ -13,6 +13,7 @@
 		4E28F60E220AFF0500C2730B /* DBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F60D220AFF0500C2730B /* DBTool.m */; };
 		4E28F614220B0B7800C2730B /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F613220B0B7800C2730B /* Channel.m */; };
 		4E28F618220B1A7E00C2730B /* ChannelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E28F617220B1A7E00C2730B /* ChannelItem.m */; };
+		4E7125902217A7B8007F709C /* UIView+ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E71258F2217A7B8007F709C /* UIView+ActivityIndicatorView.m */; };
 		4EA7FE2D220C2F5B00C96287 /* PassageDetailLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7FE2C220C2F5B00C96287 /* PassageDetailLabel.m */; };
 		4EA7FE31220C30EB00C96287 /* PassageDetailTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7FE30220C30EB00C96287 /* PassageDetailTextStorage.m */; };
 		4EA7FE34220C470300C96287 /* PassageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7FE33220C470300C96287 /* PassageDetailCell.m */; };
@@ -63,6 +64,8 @@
 		4E28F613220B0B7800C2730B /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		4E28F616220B1A7E00C2730B /* ChannelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelItem.h; sourceTree = "<group>"; };
 		4E28F617220B1A7E00C2730B /* ChannelItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelItem.m; sourceTree = "<group>"; };
+		4E71258E2217A7B8007F709C /* UIView+ActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ActivityIndicatorView.h"; sourceTree = "<group>"; };
+		4E71258F2217A7B8007F709C /* UIView+ActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ActivityIndicatorView.m"; sourceTree = "<group>"; };
 		4EA7FE2B220C2F5B00C96287 /* PassageDetailLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailLabel.h; sourceTree = "<group>"; };
 		4EA7FE2C220C2F5B00C96287 /* PassageDetailLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassageDetailLabel.m; sourceTree = "<group>"; };
 		4EA7FE2F220C30EB00C96287 /* PassageDetailTextStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassageDetailTextStorage.h; sourceTree = "<group>"; };
@@ -330,6 +333,8 @@
 				4EBACEE62215595100918ABF /* NSDate+Quick.m */,
 				4EF34AA922170761007B3D45 /* ASNavigationController+SVProgressHud.h */,
 				4EF34AAA22170761007B3D45 /* ASNavigationController+SVProgressHud.m */,
+				4E71258E2217A7B8007F709C /* UIView+ActivityIndicatorView.h */,
+				4E71258F2217A7B8007F709C /* UIView+ActivityIndicatorView.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				4EEB3D5E220A928B00D4DD91 /* ChannelCell.m in Sources */,
 				4EECE75E220BEF60004370BB /* ASView.m in Sources */,
 				4EA7FE31220C30EB00C96287 /* PassageDetailTextStorage.m in Sources */,
+				4E7125902217A7B8007F709C /* UIView+ActivityIndicatorView.m in Sources */,
 				4EECE75A220BCEB3004370BB /* TFHpple.m in Sources */,
 				4EBACEE72215595100918ABF /* NSDate+Quick.m in Sources */,
 				4EEB3D36220A839200D4DD91 /* ASViewController.m in Sources */,

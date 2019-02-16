@@ -56,7 +56,7 @@
 
 @end
 
-@interface PassageListVC () <ChannelServiceDelegate>
+@interface PassageListVC () <ChannelServiceDelegate, LoadMoreFooterViewDelegate>
 
 @property (nonatomic, strong) Channel *data;
 
@@ -120,6 +120,12 @@
     [svc startToParseRSSChannel:self.data.url.absoluteString];
 }
 
+#pragma mark LoadMoreFooterViewDelegate
+
+- (void)tryToLoadMore {
+    
+}
+
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -136,12 +142,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 30;
+    return 35;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (viewToLoadMore == nil) {
-        viewToLoadMore = [[LoadMoreFooterView alloc] init];
+        viewToLoadMore = [[LoadMoreFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 35)];
+        viewToLoadMore.delegate = self;
+        [viewToLoadMore setNeedToLoadMoreInfo:@"Click to load more"];
     }
     
     return viewToLoadMore;
