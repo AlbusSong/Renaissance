@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) ASTableView *tableView;
 @property (nonatomic, strong) NSMutableArray *arrOfData;
+@property (nonatomic) NSUInteger currentPage;
 
 @end
 

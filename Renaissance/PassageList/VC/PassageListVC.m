@@ -96,7 +96,8 @@
 }
 
 - (void)refreshData {
-    self.arrOfData = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString];
+    NSMutableArray *arr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString page:self.currentPage];
+    [self.arrOfData addObjectsFromArray:arr];
 }
 
 #pragma mark ChannelServiceDelegate
@@ -123,7 +124,15 @@
 #pragma mark LoadMoreFooterViewDelegate
 
 - (void)tryToLoadMore {
-    
+    self.currentPage++;
+    NSMutableArray *arr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString page:self.currentPage];
+    [self.arrOfData addObjectsFromArray:arr];
+    [self.tableView reloadData];
+    if (arr.count > 0) {
+        [viewToLoadMore setNeedToLoadMore];
+    } else {
+        [viewToLoadMore setNoMore];
+    }
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -149,7 +158,7 @@
     if (viewToLoadMore == nil) {
         viewToLoadMore = [[LoadMoreFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 35)];
         viewToLoadMore.delegate = self;
-        [viewToLoadMore setNeedToLoadMoreInfo:@"Click to load more"];
+        [viewToLoadMore setNeedToLoadMore];
     }
     
     return viewToLoadMore;

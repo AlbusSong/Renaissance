@@ -20,8 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <LoadMoreFooterViewDelegate> delegate;
 
+- (void)setActivityIndicatorViewShowDelay:(CGFloat)delay; // Defalut is 0.5
+
+- (void)setNeedToLoadMore;
 - (void)setNeedToLoadMoreInfo:(NSString *)info;
 - (void)setNeedToLoadMoreInfo:(NSString *)info textColor:(UIColor *)color;
+
+- (void)setNoMore;
 - (void)setNoMoreInfo:(NSString *)info;
 - (void)setNoMoreInfo:(NSString *)info textColor:(UIColor *)color;
 

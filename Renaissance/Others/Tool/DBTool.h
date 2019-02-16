@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)saveToChannelItemTableWithData:(MWFeedItem *)feedItem urlMd5Value:(NSString *)urlMd5Value;
 - (void)updateCoverUrl:(nullable NSString *)coverUrl identifierMd5Value:(NSString *)identifierMd5Value;
 - (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl;
+- (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl page:(NSUInteger)page pageSize:(int)pageSize;
+- (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl page:(NSUInteger)page;
 
 @end
 

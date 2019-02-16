@@ -103,6 +103,39 @@ static DBTool *instance = nil;
 
 #pragma mark channel_item_tb operation
 
+- (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl page:(NSUInteger)page {
+    return [self getChannelItemsUnderFeedUrl:feedUrl page:page pageSize:10];
+}
+
+- (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl page:(NSUInteger)page pageSize:(int)pageSize {
+    [self.database open];
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    FMResultSet* selectResult = [self.database executeQuery:@"SELECT * FROM channel_item_tb WHERE urlMd5Value = ? ORDER BY date DESC LIMIT ?, ?;", [GlobalTool md5String:feedUrl], @(page*pageSize), @(pageSize)];
+    while ([selectResult next]) {
+        ChannelItem *data = [[ChannelItem alloc] init];
+        data.urlMd5Value = [selectResult stringForColumn:@"urlMd5Value"];
+        data.isRead = [[selectResult stringForColumn:@"isRead"] intValue];
+        data.title = [selectResult stringForColumn:@"title"];
+        data.link = [selectResult stringForColumn:@"link"];
+        data.summary = [selectResult stringForColumn:@"summary"];
+        data.coverUrl = [selectResult stringForColumn:@"coverUrl"];
+        data.isCollected = [[selectResult stringForColumn:@"isCollected"] intValue];
+        data.createTime = [[selectResult stringForColumn:@"createTime"] integerValue];
+        data.date = [selectResult dateForColumn:@"date"];
+        data.updated = [selectResult dateForColumn:@"updated"];
+        data.author = [selectResult stringForColumn:@"author"];
+        data.content = [selectResult stringForColumn:@"content"];
+        NSData *dataOfEnclosures = [selectResult dataForColumn:@"enclosures"];
+        if (dataOfEnclosures) {
+            data.enclosures = [NSKeyedUnarchiver unarchiveObjectWithData:dataOfEnclosures];
+        }
+        
+        [result addObject:data];
+    }
+    
+    return result;
+}
+
 - (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl {
     [self.database open];
     NSMutableArray *result = [[NSMutableArray alloc] init];
