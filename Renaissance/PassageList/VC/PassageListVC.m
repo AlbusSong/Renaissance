@@ -97,6 +97,7 @@
 
 - (void)refreshData {
     NSMutableArray *arr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString page:self.currentPage];
+    [self.arrOfData removeAllObjects];
     [self.arrOfData addObjectsFromArray:arr];
 }
 
@@ -126,7 +127,13 @@
 - (void)tryToLoadMore {
     self.currentPage++;
     NSMutableArray *arr = [[DBTool sharedInstance] getChannelItemsUnderFeedUrl:self.data.url.absoluteString page:self.currentPage];
-    [self.arrOfData addObjectsFromArray:arr];
+    NSMutableArray *arrToAppend = [[NSMutableArray alloc] init];
+    for (ChannelItem *item in arr) {
+        if (![self checkIfContainItem:item forChannelItemArray:self.arrOfData]) {
+            [arrToAppend addObject:item];
+        }
+    }
+    [self.arrOfData addObjectsFromArray:arrToAppend];
     [self.tableView reloadData];
     if (arr.count > 0) {
         [viewToLoadMore setNeedToLoadMore];
@@ -176,6 +183,21 @@
     
     PassageDetailVC *vcOfPassageDetail = [[PassageDetailVC alloc] initWithChannelItemData:[self.arrOfData objectAtIndex:indexPath.row]];
     [self pushVC:vcOfPassageDetail];
+}
+
+#pragma mark small func
+
+- (BOOL)checkIfContainItem:(ChannelItem *)item forChannelItemArray:(NSArray <ChannelItem *> *)array {
+    BOOL result = NO;
+    
+    for (ChannelItem *channelItem in array) {
+        if ([channelItem.identifierMd5Value isEqualToString:item.identifierMd5Value]) {
+            result = YES;
+            break;
+        }
+    }
+    
+    return result;
 }
 
 @end
