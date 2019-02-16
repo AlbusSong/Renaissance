@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <PassageDetailCellDelegate> delegate;
 
-- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withLinkDataArr:(nullable NSArray *)linkDataArr;
+- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withAttributeData:(nullable NSDictionary *)attributeData;
 
 - (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString;
 

@@ -40,10 +40,10 @@
 }
 
 - (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString {
-    [self resetSubviewsWithAttributeString:attributeString withLinkDataArr:nil];
+    [self resetSubviewsWithAttributeString:attributeString withAttributeData:nil];
 }
 
-- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withLinkDataArr:(nullable NSArray *)linkDataArr {
+- (void)resetSubviewsWithAttributeString:(NSAttributedString *)attributeString withAttributeData:(nullable NSDictionary *)attributeData {
     self.txt.hidden = NO;
     self.txt.attributedText = attributeString;
     self.txt.hidden = YES;
@@ -54,7 +54,9 @@
     self.txtOfContent.hidden = NO;
     NSMutableAttributedString *mAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
     
-    if (linkDataArr.count == 0) {
+    NSMutableArray *arrOfBoldData = [attributeData objectForKey:@"bold"];
+    NSMutableArray *arrOfLinkData = [attributeData objectForKey:@"link"];
+    if (arrOfBoldData.count == 0 && arrOfLinkData.count == 0) {
         self.txtOfContent.attributedText = (NSAttributedString *)mAttributeString;
         return;
     }
@@ -63,7 +65,17 @@
     [paragraph setLineSpacing:8];
     
     WS(weakSelf)
-    for (NSDictionary *dictOfLinkData in linkDataArr) {
+    // Bold
+    for (NSDictionary *dictOfBoldData in arrOfBoldData) {
+        NSRange range = [dictOfBoldData[@"range"] rangeValue];
+        NSString *content = [dictOfBoldData objectForKey:@"content"];
+        
+        NSAttributedString *attriOfUnderline = [[NSAttributedString alloc] initWithString:content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont boldSystemFontOfSize:15]}];
+        [mAttributeString replaceCharactersInRange:range withAttributedString:attriOfUnderline];
+    }
+    
+    // Link
+    for (NSDictionary *dictOfLinkData in arrOfLinkData) {
         NSRange range = [dictOfLinkData[@"range"] rangeValue];
         NSString *content = [dictOfLinkData objectForKey:@"content"];
         NSDictionary *attributes = [dictOfLinkData objectForKey:@"attributes"];

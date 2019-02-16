@@ -123,7 +123,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10;
+    return (section <= 2) ? 10 : 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -179,6 +179,15 @@
                     NSMutableAttributedString *attriOfA = [[NSMutableAttributedString alloc] initWithString:element.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:[UIColor greenColor], NSFontAttributeName:[UIFont systemFontOfSize:15], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle)}];
                     [attri replaceCharactersInRange:rangeOfA withAttributedString:attriOfA];
                 }
+            } else if ([element.tagName isEqualToString:@"em"] ||
+                       [element.tagName isEqualToString:@"b"]) {
+                NSRange rangeOfBold = [topElement.content rangeOfString:element.content];
+                if (rangeOfBold.location != NSNotFound) {
+                    NSMutableAttributedString *attriOfBold = [[NSMutableAttributedString alloc] initWithString:element.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSFontAttributeName:[UIFont boldSystemFontOfSize:15]}];
+                    [attri replaceCharactersInRange:rangeOfBold withAttributedString:attriOfBold];
+                }
+            } else if ([element.tagName isEqualToString:@"i"]) {
+                
             }
         }
         
@@ -231,6 +240,7 @@
 //        NSLog(@"topElement: %@\n%@", topElement.tagName, topElement.content);
         NSArray *childrenElements = topElement.children;
         NSMutableArray *arrOfLinkData = [[NSMutableArray alloc] init];
+        NSMutableArray *arrOfBoldData = [[NSMutableArray alloc] init];
         for (int i = 0; i < childrenElements.count; i++) {
             TFHppleElement *element = [childrenElements objectAtIndex:i];
 //            NSLog(@"element: %@", element);
@@ -248,18 +258,35 @@
                                                  };
                     [arrOfLinkData addObject:dictOfLink];
                 }
+            } else if ([element.tagName isEqualToString:@"em"] ||
+                       [element.tagName isEqualToString:@"i"]) {
+                NSRange rangeOfBold = [topElement.content rangeOfString:element.content];
+                if (rangeOfBold.location != NSNotFound) {
+                    NSDictionary *dictOfBold = @{
+                                                 @"range":[NSValue valueWithRange:rangeOfBold],
+                                                 @"content":element.content,
+                                                 @"attributes":element.attributes,
+                                                 };
+                    [arrOfBoldData addObject:dictOfBold];
+                }
             }
         }
+        
+        NSDictionary *dictOfAttributeData =
+        @{
+          @"bold":arrOfBoldData,
+          @"link":arrOfLinkData,
+          };
         
         if ([topElement.tagName isEqualToString:@"p"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"303030") range:NSMakeRange(0, topElement.content.length)];
             
-            [cell resetSubviewsWithAttributeString:attri withLinkDataArr:arrOfLinkData];
+            [cell resetSubviewsWithAttributeString:attri withAttributeData:dictOfAttributeData];
             [cell resetTextInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
         } else if ([topElement.tagName isEqualToString:@"blockquote"]) {
             [attri addAttribute:NSForegroundColorAttributeName value:HexColor(@"606060") range:NSMakeRange(0, topElement.content.length)];
             
-            [cell resetSubviewsWithAttributeString:attri withLinkDataArr:arrOfLinkData];
+            [cell resetSubviewsWithAttributeString:attri withAttributeData:dictOfAttributeData];
             [cell resetTextInsets:UIEdgeInsetsMake(0, 20, 0, 10)];
             [cell showVerticalGrayLine];
         }
