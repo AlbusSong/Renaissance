@@ -187,7 +187,11 @@
                     [attri replaceCharactersInRange:rangeOfBold withAttributedString:attriOfBold];
                 }
             } else if ([element.tagName isEqualToString:@"i"]) {
-                
+                NSRange rangeOfItalic = [topElement.content rangeOfString:element.content];
+                if (rangeOfItalic.location != NSNotFound) {
+                    NSMutableAttributedString *attriOfItalic = [[NSMutableAttributedString alloc] initWithString:element.content attributes:@{NSParagraphStyleAttributeName:paragraph, NSFontAttributeName:[UIFont systemFontOfSize:15], NSObliquenessAttributeName:@(0.5)}];
+                    [attri replaceCharactersInRange:rangeOfItalic withAttributedString:attriOfItalic];
+                }
             }
         }
         
@@ -241,6 +245,7 @@
         NSArray *childrenElements = topElement.children;
         NSMutableArray *arrOfLinkData = [[NSMutableArray alloc] init];
         NSMutableArray *arrOfBoldData = [[NSMutableArray alloc] init];
+        NSMutableArray *arrOfItalicData = [[NSMutableArray alloc] init];
         for (int i = 0; i < childrenElements.count; i++) {
             TFHppleElement *element = [childrenElements objectAtIndex:i];
 //            NSLog(@"element: %@", element);
@@ -269,6 +274,16 @@
                                                  };
                     [arrOfBoldData addObject:dictOfBold];
                 }
+            } else if ([element.tagName isEqualToString:@"i"]) {
+                NSRange rangeOfItalic = [topElement.content rangeOfString:element.content];
+                if (rangeOfItalic.location != NSNotFound) {
+                    NSDictionary *dictOfItalic = @{
+                                                 @"range":[NSValue valueWithRange:rangeOfItalic],
+                                                 @"content":element.content,
+                                                 @"attributes":element.attributes,
+                                                 };
+                    [arrOfItalicData addObject:dictOfItalic];
+                }
             }
         }
         
@@ -276,6 +291,7 @@
         @{
           @"bold":arrOfBoldData,
           @"link":arrOfLinkData,
+          @"italic":arrOfItalicData,
           };
         
         if ([topElement.tagName isEqualToString:@"p"]) {

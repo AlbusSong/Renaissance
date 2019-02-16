@@ -55,8 +55,9 @@
     NSMutableAttributedString *mAttributeString = [[NSMutableAttributedString alloc] initWithAttributedString:attributeString];
     
     NSMutableArray *arrOfBoldData = [attributeData objectForKey:@"bold"];
+    NSMutableArray *arrOfItalicData = [attributeData objectForKey:@"italic"];
     NSMutableArray *arrOfLinkData = [attributeData objectForKey:@"link"];
-    if (arrOfBoldData.count == 0 && arrOfLinkData.count == 0) {
+    if (arrOfBoldData.count == 0 && arrOfLinkData.count == 0 && arrOfItalicData.count == 0) {
         self.txtOfContent.attributedText = (NSAttributedString *)mAttributeString;
         return;
     }
@@ -70,8 +71,17 @@
         NSRange range = [dictOfBoldData[@"range"] rangeValue];
         NSString *content = [dictOfBoldData objectForKey:@"content"];
         
-        NSAttributedString *attriOfUnderline = [[NSAttributedString alloc] initWithString:content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont boldSystemFontOfSize:15]}];
-        [mAttributeString replaceCharactersInRange:range withAttributedString:attriOfUnderline];
+        NSAttributedString *attriOfBold = [[NSAttributedString alloc] initWithString:content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont boldSystemFontOfSize:15]}];
+        [mAttributeString replaceCharactersInRange:range withAttributedString:attriOfBold];
+    }
+    
+    // Italic
+    for (NSDictionary *dictOfItalicData in arrOfBoldData) {
+        NSRange range = [dictOfItalicData[@"range"] rangeValue];
+        NSString *content = [dictOfItalicData objectForKey:@"content"];
+        
+        NSAttributedString *attriOfItalic = [[NSAttributedString alloc] initWithString:content attributes:@{NSParagraphStyleAttributeName:paragraph, NSForegroundColorAttributeName:HexColor(@"303030"), NSFontAttributeName:[UIFont systemFontOfSize:15], NSObliquenessAttributeName:@(0.5)}];
+        [mAttributeString replaceCharactersInRange:range withAttributedString:attriOfItalic];
     }
     
     // Link
