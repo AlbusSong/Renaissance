@@ -21,8 +21,10 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     CGFloat widthOfTitle = (ScreenW - 10*3)*216/(216 + 137);
+    NSInteger numberOfLinesForTitle = 3;
     if (!data.isCoverUrlValid) {
         widthOfTitle = ScreenW - 20;
+        numberOfLinesForTitle = 2;
     }
     if (txtOfTitle == nil) {
         txtOfTitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"404040") parentView:self.contentView];
@@ -30,7 +32,8 @@
         txtOfTitle.numberOfLines = 3;
         txtOfTitle.sd_layout.leftSpaceToView(self.contentView, 10).topSpaceToView(self.contentView, 10);
     }
-    txtOfTitle.text = data.title;
+    txtOfTitle.numberOfLines = numberOfLinesForTitle;
+    txtOfTitle.text = [data.title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSMutableParagraphStyle* paragraphOfTitle = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfTitle setLineSpacing:10];
     NSAttributedString *attrOfTitle = [[NSAttributedString alloc] initWithString:txtOfTitle.text attributes:@{NSParagraphStyleAttributeName:paragraphOfTitle}];
@@ -61,7 +64,7 @@
         txtOfSubtitle.numberOfLines = 2;
         txtOfSubtitle.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 5).heightIs(46);
     }
-    txtOfSubtitle.text = [NSString stringWithFormat:@"%@ | %@", [data.date timeStringByFormatter:@"d MMM"], data.summary];
+    txtOfSubtitle.text = [NSString stringWithFormat:@"%@ | %@", [data.date timeStringByFormatter:@"d MMM"], [data.summary stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
     NSMutableParagraphStyle* paragraphOfStatus = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfStatus setLineSpacing:2];
     NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfSubtitle.text attributes:@{NSForegroundColorAttributeName:HexColor(@"202020"), NSParagraphStyleAttributeName:paragraphOfStatus}];
