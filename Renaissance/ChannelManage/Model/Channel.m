@@ -10,4 +10,19 @@
 
 @implementation Channel
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.unReadCount = 0;
+    }
+    return self;
+}
+
+- (NSInteger)unReadCount {
+    if (_unReadCount < 0) {
+        return 0;
+    }
+    return _unReadCount;
+}
+
 @end

@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger updateTime;
 @property (nonatomic) NSInteger createTime;
 
+@property (nonatomic) NSInteger unReadCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

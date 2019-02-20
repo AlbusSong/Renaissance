@@ -61,6 +61,9 @@ static DBTool *instance = nil;
         data.createTime = [[selectResult stringForColumn:@"createTime"] integerValue];
         data.lastBuildDate = [selectResult dateForColumn:@"lastBuildDate"];
         
+        NSInteger unReadCount = [self.database intForQuery:@"select count(createTime) from channel_item_tb WHERE urlMd5Value = ? AND isRead = 0;", data.urlMd5Value];
+        data.unReadCount = unReadCount;
+        
         [result addObject:data];
     }
     

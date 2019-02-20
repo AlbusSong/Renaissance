@@ -109,6 +109,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     PassageListVC *vcOfPassageList = [[PassageListVC alloc] initWithChannelData:[self.arrOfData objectAtIndex:indexPath.section]];
+    WS(weakSelf)
+    vcOfPassageList.setReadHandler = ^(NSString * _Nonnull urlMd5Value) {
+        Channel *theChannel;
+        for (Channel *c in weakSelf.arrOfData) {
+            if ([c.urlMd5Value isEqualToString:urlMd5Value]) {
+                theChannel = c;
+                break;
+            }
+        }
+        
+        if (theChannel) {
+            theChannel.unReadCount--;
+            [weakSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:[weakSelf.arrOfData indexOfObject:theChannel]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    };
     [self pushVC:vcOfPassageList];
 }
 

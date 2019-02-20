@@ -46,9 +46,10 @@
         txtOfStatus.sd_layout.leftSpaceToView(imgv, 10).rightSpaceToView(self.contentView, 0).bottomEqualToView(imgv).heightIs(14);
     }
     NSString *timeString = [[NSDate dateWithTimeIntervalSince1970:data.updateTime] timeStringByFormatter:@"d MMM"];
-    txtOfStatus.text = [NSString stringWithFormat:@"2 unread | %@", timeString];
+    NSString *unReadCountString = [NSString stringWithFormat:@"%li unread |", data.unReadCount];
+    txtOfStatus.text = [NSString stringWithFormat:@"%@ %@", unReadCountString, timeString];
     NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfStatus.text attributes:@{NSForegroundColorAttributeName:HexColor(@"2e2e2e2")}];
-    [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"A62A2A") range:NSMakeRange(0, [@"2 unread |" length])];
+    [attrOfStatus addAttribute:NSForegroundColorAttributeName value:(data.unReadCount > 0 ? HexColor(@"A62A2A") : HexColor(@"2e2e2e2")) range:NSMakeRange(0, [unReadCountString length])];
     txtOfStatus.attributedText = attrOfStatus;
     
     if (grayLine == nil) {

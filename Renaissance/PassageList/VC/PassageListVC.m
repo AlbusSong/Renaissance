@@ -195,6 +195,10 @@
         if (theItem) {
             theItem.isRead = YES;
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[weakSelf.arrOfData indexOfObject:theItem] inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            
+            if (weakSelf.setReadHandler) {
+                weakSelf.setReadHandler(theItem.urlMd5Value);
+            }
         }
     };
     [self pushVC:vcOfPassageDetail];
