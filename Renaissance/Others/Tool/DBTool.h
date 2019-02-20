@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateLogoUrl:(nullable NSString *)logoUrl favoiconUrl:(nullable NSString *)favoiconUrl ofChannelUrl:(NSString *)channelUrl;
 - (NSMutableArray *)getAllAvailableChannels;
 
+- (BOOL)setReadBy:(NSString *)identifierMd5Value;
 - (void)saveToChannelItemTableWithData:(MWFeedItem *)feedItem urlMd5Value:(NSString *)urlMd5Value;
 - (void)updateCoverUrl:(nullable NSString *)coverUrl identifierMd5Value:(NSString *)identifierMd5Value;
 - (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl;

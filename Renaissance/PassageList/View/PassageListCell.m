@@ -64,11 +64,13 @@
         txtOfSubtitle.numberOfLines = 2;
         txtOfSubtitle.sd_layout.leftSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10).bottomSpaceToView(self.contentView, 5).heightIs(46);
     }
-    txtOfSubtitle.text = [NSString stringWithFormat:@"%@ | %@", [data.date timeStringByFormatter:@"d MMM"], [data.summary stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    NSString *timeString = [data.date timeStringByFormatter:@"d MMM"];
+    txtOfSubtitle.text = [NSString stringWithFormat:@"%@ | %@", timeString, [data.summary stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
     NSMutableParagraphStyle* paragraphOfStatus = [[NSMutableParagraphStyle alloc] init];
     [paragraphOfStatus setLineSpacing:2];
     NSMutableAttributedString *attrOfStatus = [[NSMutableAttributedString alloc] initWithString:txtOfSubtitle.text attributes:@{NSForegroundColorAttributeName:HexColor(@"202020"), NSParagraphStyleAttributeName:paragraphOfStatus}];
-    [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"a0a0a0") range:NSMakeRange(0, [@"5 Feb |" length])];
+//    [attrOfStatus addAttribute:NSForegroundColorAttributeName value:HexColor(@"a0a0a0") range:NSMakeRange(0, [timeString length])];
+    [attrOfStatus addAttribute:NSForegroundColorAttributeName value:(!data.isRead ? HexColor(@"A62A2A") : HexColor(@"a0a0a0")) range:NSMakeRange(0, timeString.length + 2)];
     txtOfSubtitle.attributedText = attrOfStatus;
     
     if (grayLine == nil) {

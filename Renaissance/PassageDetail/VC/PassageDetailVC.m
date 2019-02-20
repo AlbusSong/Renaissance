@@ -52,6 +52,13 @@
     txtForSizeFitting = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:20] textColor:HexColor(@"ffffff") parentView:nil];
     [self.tableView registerClass:[PassageDetailCell class] forCellReuseIdentifier:@"PassageDetailCellIdentifier"];
     self.tableView.backgroundColor = self.view.backgroundColor;
+    NSLog(@"63263232349234924592345: %@", self.data.identifier);
+    BOOL setReadResult = [[DBTool sharedInstance] setReadBy:self.data.identifierMd5Value];
+    if (setReadResult) {
+        if (self.setReadHandler) {
+            self.setReadHandler(self.data.identifierMd5Value);
+        }
+    }
 }
 
 - (void)parseData {

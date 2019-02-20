@@ -103,6 +103,23 @@ static DBTool *instance = nil;
 
 #pragma mark channel_item_tb operation
 
+- (BOOL)setReadBy:(NSString *)identifierMd5Value {
+    if (identifierMd5Value.length == 0) {
+        return NO;
+    }
+    
+    [self.database open];
+    BOOL result = [self.database executeUpdate:@"UPDATE channel_item_tb SET isRead = 1 WHERE identifierMd5Value = ?;", identifierMd5Value];
+    
+    if (result) {
+        NSLog(@"set read successfully");
+    } else {
+        NSLog(@"failed to set read");
+    }
+    
+    return result;
+}
+
 - (NSMutableArray *)getChannelItemsUnderFeedUrl:(NSString *)feedUrl page:(NSUInteger)page {
     return [self getChannelItemsUnderFeedUrl:feedUrl page:page pageSize:10];
 }
@@ -113,6 +130,8 @@ static DBTool *instance = nil;
     FMResultSet* selectResult = [self.database executeQuery:@"SELECT * FROM channel_item_tb WHERE urlMd5Value = ? ORDER BY date DESC LIMIT ?, ?;", [GlobalTool md5String:feedUrl], @(page*pageSize), @(pageSize)];
     while ([selectResult next]) {
         ChannelItem *data = [[ChannelItem alloc] init];
+        data.identifierMd5Value = [selectResult stringForColumn:@"identifierMd5Value"];
+        data.identifier = [selectResult stringForColumn:@"identifier"];
         data.urlMd5Value = [selectResult stringForColumn:@"urlMd5Value"];
         data.isRead = [[selectResult stringForColumn:@"isRead"] intValue];
         data.title = [selectResult stringForColumn:@"title"];

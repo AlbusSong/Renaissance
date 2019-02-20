@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PassageDetailVC : ASTableViewVC
 
+@property (nonatomic, copy) void (^setReadHandler) (NSString *identifierMd5Value);
+
 - (instancetype)initWithChannelItemData:(ChannelItem *)data;
 
 @end

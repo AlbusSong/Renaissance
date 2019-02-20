@@ -49,7 +49,6 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-*/fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
 
@@ -57,13 +56,4 @@ buck-out/
 *.jsbundle
 
 # Pods
-Pods/*
-!Pods/MWFeedParser/
-!Pods/MWFeedParser/*
-!Pods/MWFeedParser/Classes/
-!Pods/MWFeedParser/Classes/*
-!Pods/MWFeedParser/Classes/MWFeedParser.m
-Pods/MWFeedParser/.DS_Store
-Pods/MWFeedParser/LICENSE.txt
-Pods/MWFeedParser/LICENSE.txt
-Pods/MWFeedParser/README.markdown
+Pods/

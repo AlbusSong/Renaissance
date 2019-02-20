@@ -182,6 +182,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     PassageDetailVC *vcOfPassageDetail = [[PassageDetailVC alloc] initWithChannelItemData:[self.arrOfData objectAtIndex:indexPath.row]];
+    WS(weakSelf)
+    vcOfPassageDetail.setReadHandler = ^(NSString * _Nonnull identifierMd5Value) {
+        ChannelItem *theItem;
+        for (ChannelItem *item in weakSelf.arrOfData) {
+            if ([item.identifierMd5Value isEqualToString:identifierMd5Value]) {
+                theItem = item;
+                break;
+            }
+        }
+        
+        if (theItem) {
+            theItem.isRead = YES;
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[weakSelf.arrOfData indexOfObject:theItem] inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    };
     [self pushVC:vcOfPassageDetail];
 }
 
