@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *favoiconUrl;
 @property (nonatomic) int isDeleted;
 @property (nonatomic) int isCollected;
+@property (nonatomic) NSInteger updateTime;
 @property (nonatomic) NSInteger createTime;
 
 @end

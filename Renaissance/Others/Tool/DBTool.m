@@ -57,6 +57,7 @@ static DBTool *instance = nil;
         data.favoiconUrl = [selectResult stringForColumn:@"favoiconUrl"];
         data.isDeleted = [[selectResult stringForColumn:@"isDeleted"] intValue];
         data.isCollected = [[selectResult stringForColumn:@"isCollected"] intValue];
+        data.updateTime = [[selectResult stringForColumn:@"updateTime"] integerValue];
         data.createTime = [[selectResult stringForColumn:@"createTime"] integerValue];
         data.lastBuildDate = [selectResult dateForColumn:@"lastBuildDate"];
         
@@ -99,6 +100,12 @@ static DBTool *instance = nil;
     } else {
         NSLog(@"failed to cache");
     }
+    
+    [self refreshUpdateTimeByUrlMd5Value:[GlobalTool md5String:feedInfo.url.absoluteString]];
+}
+
+- (void)refreshUpdateTimeByUrlMd5Value:(NSString *)urlMd5Value {
+    [self.database executeUpdate:@"UPDATE channel_tb SET updateTime = ? WHERE urlMd5Value = ?;", @((NSInteger)[[NSDate date] timeIntervalSince1970]), urlMd5Value];
 }
 
 #pragma mark channel_item_tb operation
@@ -248,7 +255,7 @@ static DBTool *instance = nil;
 
 - (void)initChannelTable {
     if ([self.database open]) {
-        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_tb (id INTEGER PRIMARY KEY AutoIncrement, urlMd5Value varchar UNIQUE, url varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', logoUrl varchar DEFAULT '', favoiconUrl varchar DEFAULT '', summary varchar DEFAULT '', lastBuildDate integer, cacheData blob, isDeleted SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0,  createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
+        BOOL result = [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS channel_tb (id INTEGER PRIMARY KEY AutoIncrement, urlMd5Value varchar UNIQUE, url varchar DEFAULT '', title varchar DEFAULT '', link varchar DEFAULT '', logoUrl varchar DEFAULT '', favoiconUrl varchar DEFAULT '', summary varchar DEFAULT '', lastBuildDate integer, cacheData blob, isDeleted SMALLINT DEFAULT 0, isCollected SMALLINT DEFAULT 0, updateTime integer DEFAULT 0, createTime TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')));"];
         if (result) {
             NSLog(@"create channel_tb successfully");
         }
