@@ -27,10 +27,11 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveChannel)];
         
-        NSArray *examples = @[@"https://www.theamericanconservative.com/feed",
-                              @"http://feeds.bbci.co.uk/news/world/rss.xml",
-                              @"http://feeds.foxnews.com/foxnews/scitech",
-                              ];
+//        NSArray *examples = @[@"https://www.theamericanconservative.com/feed",
+//                              @"http://feeds.bbci.co.uk/news/world/rss.xml",
+//                              @"http://feeds.foxnews.com/foxnews/scitech",
+//                              ];
+        NSArray *examples = @[@"https://www.theamericanconservative.com/feed"];
         [self.arrOfData addObjectsFromArray:examples];
     }
     return self;
