@@ -769,7 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7C242XVVZ;
-				GCC_PREFIX_HEADER = /Users/albus/Desktop/iOS/Renaissance/Renaissance/SupportingFiles/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)//Renaissance/SupportingFiles/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -800,7 +800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7C242XVVZ;
-				GCC_PREFIX_HEADER = /Users/albus/Desktop/iOS/Renaissance/Renaissance/SupportingFiles/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)//Renaissance/SupportingFiles/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",

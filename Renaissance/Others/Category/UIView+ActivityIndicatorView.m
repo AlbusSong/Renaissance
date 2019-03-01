@@ -7,6 +7,7 @@
 //
 
 #import "UIView+ActivityIndicatorView.h"
+#import <objc/runtime.h>
 
 static char activityView;
 
@@ -39,7 +40,11 @@ static char activityView;
     self.viewOfActivity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
     [self.viewOfActivity hidesWhenStopped];
     [self addSubview:self.viewOfActivity];
-    self.viewOfActivity.sd_layout.centerXEqualToView(self).centerYEqualToView(self);
+//    self.viewOfActivity.sd_layout.centerXEqualToView(self).centerYEqualToView(self);
+    UIView *targetView = self.viewOfActivity;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[viewOfActivity]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(targetView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[viewOfActivity]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(targetView)]];
+    
 }
 
 - (void)startActivityView {
