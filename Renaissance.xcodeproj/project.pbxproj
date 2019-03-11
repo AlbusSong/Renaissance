@@ -768,7 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U7C242XVVZ;
+				DEVELOPMENT_TEAM = 5Y3HHHZ63R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)//Renaissance/SupportingFiles/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -787,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LikeAnEagle.Renaissance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Albus.Renaissance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -799,7 +799,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U7C242XVVZ;
+				DEVELOPMENT_TEAM = 5Y3HHHZ63R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)//Renaissance/SupportingFiles/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -818,7 +818,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LikeAnEagle.Renaissance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Albus.Renaissance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
