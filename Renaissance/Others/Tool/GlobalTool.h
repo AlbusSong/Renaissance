@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GlobalTool : NSObject
 
++ (CGSize)sizeFitsWithSize:(CGSize)size text:(NSString *)text fontSize:(CGFloat)fontSize;
++ (CGSize)sizeFitsWithSize:(CGSize)size text:(NSString *)text font:(UIFont *)font;
++ (CGSize)sizeFitsWithSize:(CGSize)size attributeText:(NSAttributedString *)attributeText;
+
 + (NSString *)timeStringBy:(NSInteger)unixTimeStamp formatter:(NSString *)formatterStr;
 
 + (NSString *)md5String:(NSString *)string;
