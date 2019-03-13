@@ -43,6 +43,7 @@
     
     [self setHintText];
     
+    
     self.tableView.backgroundColor = self.view.backgroundColor;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"AddChannelCellIdentifier"];
 }
